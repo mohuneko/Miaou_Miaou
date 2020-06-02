@@ -1,24 +1,28 @@
-# README
+# Miaou! Miaou!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+猫カフェ・猫用グッズ・猫ブランドサイト等猫情報のトータルSNSサイト。
+ユーザーは猫カフェ・グッズ等のレビューができる仕組みになっていてフォロー機能も実装し、気になるユーザーをフォローすることができる。
 
-Things you may want to cover:
+### サイトテーマ
+猫カフェ・猫用グッズ・猫ブランドサイト等猫情報のトータルSNSサイト。
 
-* Ruby version
+### テーマを選んだ理由
+大の猫好きなので、猫関係のサイトを作ってみたいと思ったのがきっかけ。
+また、猫情報全般を交換できるサイトがなかったため、"こんなサイトがあったらいいな"という思いからテーマを決めました。
 
-* System dependencies
+### ターゲットユーザ
+猫好きな幅広い世代
 
-* Configuration
+### 主な利用シーン
+猫好きなユーザーが猫カフェを利用する際・猫グッズを探している際、
+猫と暮らしているユーザーが猫の玩具を探している際、
+実際の利用者の声を得ることができるサービス。
+また、参考になる投稿をしているユーザーをフォローできたり、
+気になった猫カフェ・猫グッズをお気に入り登録することで、お気に入りを再度見返すことができるサイト。
 
-* Database creation
+## 設計書
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1AGLhMwjuuikiQYC2z96FB2ncgvfo60fwimUgziyy8rg/edit?usp=sharing
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
