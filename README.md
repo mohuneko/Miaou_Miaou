@@ -1,5 +1,7 @@
 # Miaou! Miaou!
 
+![cock](https://github.com/mohuneko/Miaou_Miaou/blob/master/miaoumiaouuuuuu.jpg)
+
 ## サイト概要
 猫カフェ・猫用グッズ・猫ブランドサイト等猫情報のトータルSNSサイト。
 ユーザーは猫カフェ・グッズ等のレビューができる仕組みになっていてフォロー機能も実装し、気になるユーザーをフォローすることができる。
