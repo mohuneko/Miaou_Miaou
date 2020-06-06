@@ -23,7 +23,9 @@
 また、参考になる投稿をしているユーザーをフォローできたり、
 気になった猫カフェ・猫グッズをお気に入り登録することで、お気に入りを再度見返すことができるサイト。
 
-## 設計書
+### 設計書
+フレームワーク
+https://app.moqups.com/uaaWYLQAyF/view/page/a0361a0d8
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1AGLhMwjuuikiQYC2z96FB2ncgvfo60fwimUgziyy8rg/edit?usp=sharing
 
