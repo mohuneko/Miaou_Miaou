@@ -1,0 +1,148 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+*{
+border:0;
+margin:0;
+padding:0;
+}
+
+nav{
+background-color: #DB9B9F;
+height:90px;
+}
+
+.inner{
+max-width: 100%;
+margin:0 auto;
+width:1150px;
+}
+nav>.flex{
+align-items:center;
+height:60px;
+}
+
+.flex{
+display: flex;
+justify-content: space-between;
+}
+
+.flex li{
+font-size:18px;
+margin-left: 30px;
+margin-top:24px;
+list-style: none;
+}
+
+.logo{
+padding-top:28px;
+}
+
+.fa-home{
+color:#2D3236;
+text-decoration: none;
+}
+
+.fa-home:hover{
+text-decoration: none;
+color:#fff;
+}
+
+.fa-paw{
+color:#2D3236;
+text-decoration: none;
+}
+
+.fa-paw:hover{
+text-decoration: none;
+color:#fff;
+}
+
+.fa-book-open{
+color:#2D3236;
+text-decoration: none;
+}
+
+.fa-book-open:hover{
+text-decoration: none;
+color:#fff;
+}
+
+.fa-sign-out-alt{
+color:#2D3236;
+text-decoration: none;
+}
+
+.fa-sign-out-alt:hover{
+text-decoration: none;
+color:#fff;
+}
+
+.fa-cat{
+color:#2D3236;
+text-decoration: none;
+}
+
+.fa-cat:hover{
+text-decoration: none;
+color:#fff;
+}
+
+.fa-user-plus{
+color:#2D3236;
+text-decoration: none;
+}
+
+.fa-user-plus:hover{
+text-decoration: none;
+color:#fff;
+}
+
+.fa-sign-in-alt{
+color:#2D3236;
+text-decoration: none;
+}
+
+.fa-sign-in-alt:hover{
+text-decoration: none;
+color:#fff;
+}
+
+.fa-fish{
+color:#1B9AB2;
+}
+
+.center-block{
+text-align: center;
+margin-top: 70px;
+}
+
+
+.fa-feather{
+color:#A8CEEF;
+}
+
+.container-fluid{
+text-align: center;
+}
+
+/*ヘッダーサインアップ*/
+.sign_up{
+text-align: center;
+margin-top:70px;
+}

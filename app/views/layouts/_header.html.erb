@@ -1,0 +1,29 @@
+<header class="navbar navbar-inverse" >
+  <div class="container-fluid">
+    <div class="row fixed-top">
+      <div class="col">
+       <nav>
+        <div class="inner flex">
+          <div class="logo">
+            <%= link_to image_tag("header2.jpg", size:'260x73'), "/" %>
+          </div>
+       <!-- </nav> -->
+       <!-- <nav> -->
+        <div class="menu">
+            <!-- ログインしている・しないない時のif文を加える -->
+          <ul class="flex">
+            <li><%= link_to "Home", "/top", class:"fas fa-home" %></li>
+            <li><%= link_to "Cats", "/cats", class:"fas fa-paw" %></li>
+            <li><%= link_to "Log", "/log", class:"fas fa-book-open" %></li> 
+            <li><%= link_to "logout", "/users/sign_out", method: :delete, class:"fas fa-sign-out-alt" %></li>
+            <li><%= link_to "About", "/home/about", class:"fas fa-cat" %></li>
+            <li><%= link_to "sign up", "/users/sign_up", class:"fas fa-user-plus" %></li>
+            <li><%= link_to "login", "/users/sign_in", class:"fas fa-sign-in-alt" %></li>
+         </ul>
+        </div>
+        </div>
+       </nav>
+     </div>
+    </div>
+  </div>
+ </header>
