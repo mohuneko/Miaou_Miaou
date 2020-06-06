@@ -1,0 +1,2 @@
+class ProductPost < ApplicationRecord
+end

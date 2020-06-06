@@ -1,0 +1,2 @@
+class CafeFavorite < ApplicationRecord
+end
