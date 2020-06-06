@@ -23,7 +23,7 @@ padding:0;
 }
 
 nav{
-background-color: #DB9B9F;
+background-color: #F6F3DE;
 height:90px;
 }
 
@@ -145,4 +145,20 @@ text-align: center;
 .sign_up{
 text-align: center;
 margin-top:70px;
+}
+
+
+/*footer*/
+
+.footer{
+position:absolute;
+bottom:0;
+width:100%;
+height:60px;
+background-color:#F6F3DE;
+}
+
+.footer p{
+color:#FFF;
+text-align: center;
 }

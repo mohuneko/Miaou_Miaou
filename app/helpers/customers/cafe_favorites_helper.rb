@@ -1,0 +1,2 @@
+module Customers::CafeFavoritesHelper
+end
