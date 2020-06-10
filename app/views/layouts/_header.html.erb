@@ -12,13 +12,13 @@
         <div class="menu">
             <!-- ログインしている・しないない時のif文を加える -->
           <ul class="flex">
-            <li><%= link_to "Home", "/top", class:"fas fa-home" %></li>
-            <li><%= link_to "Cats", "/cats", class:"fas fa-paw" %></li>
-            <li><%= link_to "Log", "/log", class:"fas fa-book-open" %></li> 
-            <li><%= link_to "logout", "/users/sign_out", method: :delete, class:"fas fa-sign-out-alt" %></li>
+            <li><%= link_to "Home", "/", class:"fas fa-home" %></li>
+            <li><%= link_to "猫グッズ", customers_product_posts_path, class:"fas fa-paw" %></li>
+            <li><%= link_to "猫カフェ", customers_cafe_posts_path, class:"fas fa-paw" %></li> 
+            <li><%= link_to "logout", "/customers/sign_out", method: :delete, class:"fas fa-sign-out-alt" %></li>
             <li><%= link_to "About", "/home/about", class:"fas fa-cat" %></li>
-            <li><%= link_to "sign up", "/users/sign_up", class:"fas fa-user-plus" %></li>
-            <li><%= link_to "login", "/users/sign_in", class:"fas fa-sign-in-alt" %></li>
+            <li><%= link_to "sign up", "/customers/sign_up", class:"fas fa-user-plus" %></li>
+            <li><%= link_to "login", "/customers/sign_in", class:"fas fa-sign-in-alt" %></li>
          </ul>
         </div>
         </div>

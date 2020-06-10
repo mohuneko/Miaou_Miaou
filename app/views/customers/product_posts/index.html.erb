@@ -1,0 +1,62 @@
+<div class="container">
+	<div class="row">
+
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col-xs-10">
+       
+       <h2 class="title">猫グッズ投稿一覧<i class="fas fa-cat"></i></h2><%= link_to "全#{ProductPost.all.count}件" %>
+
+       <% @product_posts.each do |product_post| %>
+       	<div class="index">
+
+       		<%= link_to customers_product_post_path(product_post.id) do %>
+       		 <%= attachment_image_tag @product_post, :picture, format:'jpeg', size:"150x150" %>
+
+       		 <%= product_post.product_name %>
+
+       		 <% end %>
+
+       		 <!-- 評価 -->
+       		 <div id="star3-total_rate-<%= product_post.id %>"></div>
+       		   <script>
+       		   	$('#star3-total_rate-<%= product_post.id %>').raty({
+		           	size    : 36,
+		            starOff: '<%= asset_path('star-off.png') %>',
+		            starOn : '<%= asset_path('star-on.png') %>',
+		            starHalf: '<%= asset_path('star-half.png') %>',
+		            scoreName: 'product_post[total_rate]',
+		            readOnly: true,
+		            half: true,
+		            score: <%= product_post.total_rate %>,
+               });
+       		   </script>
+
+       	<% end %>
+
+
+       	</div>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+<style>
+
+	.container{
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+	}
+	footer{
+		position: absolute;
+		bottom:0;
+		width:100%;
+		height:60px;
+		background-color:#F6F3DE;
+		padding:20px 0;
+	}
+	</style>

@@ -1,3 +1,30 @@
 // Place all the styles related to the customers::product_posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.product_image{
+
+}
+
+.product_form{
+
+}
+
+.show_title{
+  float:left;
+}
+
+#star1-price_rate{
+  float:left;
+}
+
+/*ボタン*/
+.button {
+  display: inline-block;
+  padding: .75em 4em;
+  border: 2px solid #333;
+  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
