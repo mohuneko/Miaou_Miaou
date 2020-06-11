@@ -3,9 +3,9 @@
 
     <%= render 'layouts/sidebar' %>
 
-    <div class="col-xs-10">
+    <div class="col-10">
        
-       <h2 class="title">猫グッズ投稿<i class="fas fa-cat"></i></h2>
+       <h3 class="title">猫グッズ投稿<i class="fas fa-cat"></i></h3>
 
        <div class="product_form">
          <%= form_for @product_post, url: customers_product_posts_path do |f| %>
@@ -15,14 +15,14 @@
 
              <div class="category"> <!-- カテゴリープルダウン -->
              	  <%= f.label :カテゴリー %>
-             	 
+
              </div>
 
              <div class="product_label">
 	             	<%= f.label :商品名 %> <!-- 商品名 -->
-	             	<%= f.text_field :product_name %><br>
+	             	<%= f.text_field :product_name, class:"field" %><br>
 	             	<%= f.label :価格 %><!-- 商品価格 -->
-	             	<%= f.text_field :price %>円
+	             	<%= f.text_field :price, class:"field" %>円
              </div>
       
              

@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face{
+  font-family: "cute";
+  src: font-url('rounded-mplus-1p-regular.ttf') format('truetype');
+}
+
 .product_image{
 
 }
@@ -27,4 +32,24 @@
   color: #333;
   text-decoration: none;
   text-align: center;
+}
+
+
+h3{
+  color: #6594e0;/*文字色*/
+  border-bottom: solid 3px #B2D1E6;
+}
+
+
+#star3-total_rate{
+  float:left;
+}
+
+.index_total{
+  float:left;
+}
+
+.field{
+  border: 1px solid #C3CAD2;
+  border-radius: 4px;
 }

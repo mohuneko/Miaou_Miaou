@@ -3,22 +3,30 @@
 
     <%= render 'layouts/sidebar' %>
 
-    <div class="col-xs-10">
+    <div class="col-10">
+    	
        
-       <h2 class="title">猫グッズ投稿一覧<i class="fas fa-cat"></i></h2><%= link_to "全#{ProductPost.all.count}件" %>
+       <h3 class="title">猫グッズ投稿一覧<i class="fas fa-cat"></i></h3>
+       <%= link_to "全#{ProductPost.all.count}件" %>
 
-       <% @product_posts.each do |product_post| %>
-       	<div class="index">
+       <div class="row">
+         
+         <% @product_posts.each do |product_post| %>
+        
+       	<div class="col-3">
+
 
        		<%= link_to customers_product_post_path(product_post.id) do %>
-       		 <%= attachment_image_tag @product_post, :picture, format:'jpeg', size:"150x150" %>
-
-       		 <%= product_post.product_name %>
+       		 <%= attachment_image_tag product_post, :picture, format:'jpeg', size:"150x150" %> <!-- 商品画像 -->
+           <div class="index_title">
+       		 <p>商品名：<%= product_post.product_name %></p> <!-- 商品名 -->
 
        		 <% end %>
 
        		 <!-- 評価 -->
-       		 <div id="star3-total_rate-<%= product_post.id %>"></div>
+       		 <p class="index_total">総合：</p>
+       		 <div id="star3-total_rate-<%= product_post.id %>"></div> <!-- 評価 -->
+       		</div>
        		   <script>
        		   	$('#star3-total_rate-<%= product_post.id %>').raty({
 		           	size    : 36,
@@ -32,31 +40,12 @@
                });
        		   </script>
 
-       	<% end %>
-
-
-       	</div>
-
+          </div>
+       	 <% end %>
+        
+       	
+      </div>
     </div>
 
   </div>
 </div>
-</div>
-
-<style>
-
-	.container{
-  position: relative;
-  min-height: 100%;
-  padding-bottom: 100px;
-  box-sizing: border-box;
-	}
-	footer{
-		position: absolute;
-		bottom:0;
-		width:100%;
-		height:60px;
-		background-color:#F6F3DE;
-		padding:20px 0;
-	}
-	</style>

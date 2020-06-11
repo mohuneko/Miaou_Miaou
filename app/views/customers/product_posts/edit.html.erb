@@ -3,9 +3,95 @@
 
 		<%= render 'layouts/sidebar' %>
 
-	  <div class="col-xs-10">
+	  <div class="col-10">
 
-	  	<h2 class="title">猫グッズ詳細<i class="fas fa-cat"></i></h2>
+	  	<h3 class="title">猫グッズ編集<i class="fas fa-cat"></i></h3>
+
+	  	<div class="product_form">
+         <%= form_for @product_post, url: customers_product_post_path(@product_post) do |f| %>
+            <div class="product_picture">
+            	  <%= f.attachment_field :picture %> <!-- 猫グッズ画像投稿 -->
+            </div>
+
+             <div class="category"> <!-- カテゴリープルダウン -->
+             	  <%= f.label :カテゴリー %>
+             	 
+             </div>
+
+             <div class="product_label">
+	             	<%= f.label :商品名 %> <!-- 商品名 -->
+	             	<%= f.text_field :product_name, class:"field" %><br>
+	             	<%= f.label :価格 %><!-- 商品価格 -->
+	             	<%= f.text_field :price, class:"field" %>円
+             </div>
+      
+             
+             	 <!-- 評価-->
+             	 <div class="form_group row" id="star1">
+	             	 	<%= f.label :price_rate,'価格', class:"col-md-4 col-form-label" %>
+	             	 	<%= f.hidden_field :price_rate, id: :review_star %>
+             	 </div>
+
+             	 <div class="form_group row" id="star2">
+             	 	  <%= f.label :favorite_rate, 'お気に入り', class:"col-md-4 col-form-label" %>
+	             	 	<%= f.hidden_field :favorite_rate, id: :review_star %>
+             	 </div>
+
+             	 <div class="form_group row" id="star3">
+             	 	  <%= f.label :total_rate, '総合', class:"col-md-4 col-form-label" %>
+	             	 	<%= f.hidden_field :total_rate, id: :review_star %>
+             	 </div>
+
+             	 	<script>
+             	 	$('#star1').raty({
+                  size    : 36,
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'product_post[price_rate]',
+                  half: true,
+             	 	 });
+
+             	 	$('#star2').raty({
+                  size    : 36,
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'product_post[favorite_rate]',
+                  half: true,
+             	 	 });
+
+             	 		$('#star3').raty({
+                  size    : 36,
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'product_post[total_rate]',
+                  half: true,
+             	 	 });
+
+             	  </script>
+
+                <div class="description_form">
+	                <%= f.label :説明 %><br>
+	                <%= f.text_area :description, class:"form-control", rows: "6", placeholder:"商品の使い方や猫様の反応を投稿しましょう！" %>
+	              </div>
+
+	              <!-- 投稿ボタン -->
+	              <div class="col-md-8">
+
+	              	 <%= f.submit "変更を保存する", class:"btn btn-success" %>
+
+	              </div>
+
+
+	             </div>
+
+             	 </div>
+
+             </div>
+
+         <% end %> 
 
 
 	  </div>

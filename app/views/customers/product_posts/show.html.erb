@@ -3,9 +3,9 @@
 
 		<%= render 'layouts/sidebar' %>
 
-	  <div class="col-xs-10">
+	  <div class="col-10">
 
-	  	<h2 class="title">猫グッズ詳細<i class="fas fa-cat"></i></h2>
+	  	<h3 class="title">猫グッズ詳細<i class="fas fa-cat"></i></h3>
          <%= link_to @product_post_path do %>
          <% end %>
 
@@ -21,20 +21,23 @@
 
         <!-- 評価 -->
         <div class="product_post_rate">
-        	 <p class="show_title">価格：</p>
-        	 <div id="star1-price_rate-<%= @product_post.id %>"></div><br>
+          	 <p class="show_title">価格：</p>
+          	 <div id="star1-price_rate-<%= @product_post.id %>"></div><br>
 
-           <p class="show_title">お気に入り：</p>
-           <div id="star2-favorite_rate-<%= @product_post.id %>"></div><br>
+             <p class="show_title">お気に入り：</p>
+             <div id="star2-favorite_rate-<%= @product_post.id %>"></div><br>
 
-           <p class="show_title">総合：</p>
-           <div id="star3-total_rate-<%= @product_post.id %>"></div><br>
+             <p class="show_title">総合：</p>
+             <div id="star3-total_rate-<%= @product_post.id %>"></div><br>
 
-           <p class="show_title">説明：</p>
-           <%= @product_post.description %><br>
+             <p class="show_title">説明：</p>
+             <%= @product_post.description %><br>
 
+        
+        <% if @product_post.customer_id == current_customer.id %>
            <br><p><%= link_to "編集する", edit_customers_product_post_path(@product_post), class:"button" %></p>
            <p><%= link_to "削除する", @product_post_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "button destroy_product_post_#{@product_post.id}" %></p>
+        <% end %>
 
         	 <script>
            $('#star1-price_rate-<%= @product_post.id %>').raty({

@@ -9,9 +9,6 @@ class Customers::ProductPostsController < ApplicationController
  	@product_post = ProductPost.find(params[:id])
  end
 
- def create
- end
-
  def favorite
  end
 
@@ -36,6 +33,18 @@ class Customers::ProductPostsController < ApplicationController
   redirect_to customers_product_posts_path
  end
 
+ def edit
+ 	@product_post = ProductPost.find(params[:id])
+ end
+
+ def update
+ 	@product_post = ProductPost.find(params[:id])
+ 	if @product_post.update(product_post_params)
+ 		 redirect_to customers_product_posts_path(@product_post.id)
+ 	else
+ 		 render :edit
+ 	end
+ end
 
  private 
 

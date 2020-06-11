@@ -14,5 +14,17 @@ ActiveAdmin.register Category do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
   
+  #新規作成/編集ページ
+  form do |f|
+    inputs do
+      input :category
+      input :is_valid
+    end
+
+    actions
+  end
+
+    permit_params :category, :is_valid
 end

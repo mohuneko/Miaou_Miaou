@@ -73,3 +73,6 @@ gem 'kaminari', '~> 1.1.1' #ページを区切る
 gem 'enum_help' #enumの日本語化
 gem 'dotenv-rails' #機密情報の格納
 gem 'activeadmin' #管理者機能
+gem 'devise-i18n' #devise日本語化
+gem 'devise-i18n-views' #devise日本語化
+gem 'rails-i18n', '~> 5.1'
