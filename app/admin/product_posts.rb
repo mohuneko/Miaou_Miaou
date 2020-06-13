@@ -39,7 +39,6 @@ ActiveAdmin.register ProductPost do
     f.actions
   end
 
-
   permit_params :customer_id, :category_id, :price_rate, :favorite_rate, :total_rate, :product_name, :price, :description, :picture_id, :category, :is_valid
   
 end
