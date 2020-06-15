@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get 'customers/cafe_posts/favorite' => 'customers/cafe_post#favorite' #猫カフェ投稿いいね一覧
   get 'customers/product_posts/favorite' => 'customers/product_posts#favorite' #猫グッズ投稿いいね
 
+  # post 'follow/:id' => 'relationships#follow', as: 'follow' #フォローする
+  # delete 'unfollow/:id' => 'relationships$unfollow', as: 'unfollow' #フォローを外す
+
+# 　resources :customers, only: [:show, :index, :edit, :update] #フォロー
   get 'customers/followers' => 'relationships#followers', as: 'followers'
   get 'customers/followees' => 'relationships#followees', as: 'followees'
 
@@ -29,12 +33,12 @@ Rails.application.routes.draw do
 
   namespace :customers do
   	resources :cafe_posts, only: [:index, :show, :update, :edit, :destroy, :create, :new] do #猫カフェ投稿
-  	  resources :cafe_post_comments, only: [:create, :destroy] #猫カフェコメント
+  	  resources :cafe_comments, only: [:create, :destroy] #猫カフェコメント
   	  resource :cafe_favorites, only: [:create, :destroy] #猫カフェいいね
   	end
 
   	resources :product_posts, only: [:index, :show, :update, :edit, :destroy, :create, :new] do #猫グッズ投稿
-  	  resources :product_post_comments, only: [:create, :destroy] #猫グッズコメント
+  	  resources :product_comments, only: [:create, :destroy] #猫グッズコメント
   	  resource :product_favorites, only: [:create, :destroy] #猫グッズいいね 
   	end
 

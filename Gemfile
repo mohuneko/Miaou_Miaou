@@ -64,8 +64,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise' #デバイス
 
-gem "refile", require: "refile/rails", github: 'manfe/refile' #画像投稿用gem
-gem "refile-mini_magick" #画像サイズ調整gem
+# gem "refile", require: "refile/rails", github: 'manfe/refile' #画像投稿用gem
+# gem "refile-mini_magick" #画像サイズ調整gem
 
 gem 'bootstrap', '~> 4.1.1' #bootstrap
 gem 'jquery-rails' #railsでjqueryを使えるようにするため
@@ -81,3 +81,5 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'carrierwave' #画像投稿

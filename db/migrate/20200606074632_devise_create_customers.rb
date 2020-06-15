@@ -35,7 +35,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :password
       t.string :tell
-      t.text :profile_image_id
+      t.string :profile_image
       t.boolean :status
 
       t.timestamps null: false

@@ -10,11 +10,12 @@
        <div class="product_form">
          <%= form_for @product_post, url: customers_product_posts_path do |f| %>
             <div class="product_picture">
-            	  <%= f.attachment_field :picture %> <!-- 猫グッズ画像投稿 -->
+            	  <%= f.file_field :picture %> <!-- 猫グッズ画像投稿 -->
             </div>
 
              <div class="category"> <!-- カテゴリープルダウン -->
              	  <%= f.label :カテゴリー %>
+                <%= f.collection_select :category_id, Category.all, :id, :category %>
 
              </div>
 

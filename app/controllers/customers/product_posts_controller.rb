@@ -7,6 +7,7 @@ class Customers::ProductPostsController < ApplicationController
 
  def show
  	@product_post = ProductPost.find(params[:id])
+ 	@product_comment = ProductComment.new #コメントの投稿
  end
 
  def favorite

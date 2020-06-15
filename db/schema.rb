@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
     t.string "shop_name"
     t.integer "price"
     t.text "description"
-    t.text "picture_id"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
     t.string "name"
     t.string "password"
     t.string "tell"
-    t.text "profile_image_id"
+    t.string "profile_image"
     t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
     t.string "product_name"
     t.integer "price"
     t.text "description"
-    t.text "picture_id"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

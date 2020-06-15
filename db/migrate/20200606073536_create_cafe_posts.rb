@@ -9,7 +9,7 @@ class CreateCafePosts < ActiveRecord::Migration[5.2]
       t.string :shop_name
       t.integer :price
       t.text :description
-      t.text :picture_id
+      t.string :picture
 
       t.timestamps
     end

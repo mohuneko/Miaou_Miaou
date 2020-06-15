@@ -9,7 +9,7 @@ class CreateProductPosts < ActiveRecord::Migration[5.2]
       t.string :product_name
       t.integer :price
       t.text :description
-      t.text :picture_id
+      t.string :picture
 
       t.timestamps
     end
