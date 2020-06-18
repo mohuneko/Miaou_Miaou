@@ -83,3 +83,4 @@ group :production do
 end
 
 gem 'carrierwave' #画像投稿
+gem 'mini_magick' #リサイズ

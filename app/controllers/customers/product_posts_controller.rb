@@ -2,15 +2,17 @@ class Customers::ProductPostsController < ApplicationController
 
  def index
   @product_post = ProductPost.new
-  @product_posts = ProductPost.all #のちにpagenate設定
+  @product_posts = ProductPost.all.page(params[:page]).per(8) #paginate
  end
 
  def show
- 	@product_post = ProductPost.find(params[:id])
- 	@product_comment = ProductComment.new #コメントの投稿
+  @product_post = ProductPost.find(params[:id])
+  @product_comment = ProductComment.new #コメントの投稿
+  @customer = @product_post.customer
  end
 
  def favorite
+  @product_posts = current_customer.favorite_posts.page(params[:page]).per(8)
  end
 
  def create
@@ -50,7 +52,7 @@ class Customers::ProductPostsController < ApplicationController
  private 
 
  def product_post_params
-  params.require(:product_post).permit(:customer_id, :category_id, :price_rate, :favorite_rate, :total_rate, :product_name, :price, :description, :picture)
+  params.require(:product_post).permit(:customer_id, :category_id, :price_rate, :favorite_rate, :total_rate, :product_name, :price, :description, :picture, :name, :profile_image)
  end
 
 end

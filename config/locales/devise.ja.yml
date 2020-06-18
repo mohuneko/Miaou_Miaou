@@ -140,3 +140,13 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+
+  views:
+    pagination:
+      first: <i class="fas fa-paw"> </i>
+      last: <i class="fas fa-paw"> </i>
+      previous: <i class="fas fa-angle-left"> </i>
+      next: <i class="fas fa-angle-right"> </i>
+      truncate: "..."
+
+

@@ -7,16 +7,10 @@
   src: font-url('rounded-mplus-1p-regular.ttf') format('truetype');
 }
 
-.product_image{
-
-}
-
-.product_form{
-
-}
 
 .show_title{
   float:left;
+  font-size:20px;
 }
 
 #star1-price_rate{
@@ -53,3 +47,62 @@ h3{
   border: 1px solid #C3CAD2;
   border-radius: 4px;
 }
+
+
+.product_image{
+  float:left;
+  width:30%;
+}
+
+.product_form{
+  float:left;
+  padding-left:70px;
+  padding-top:8px;
+  width:70%;
+}
+
+.product_description{
+  clear:left;
+}
+
+.good{
+  font-size:25px;
+  padding-left:10px;
+}
+
+.good1{
+  font-size:35px;
+}
+
+
+/*投稿詳細の投稿ユーザーの名前と画像*/
+.post_customer_name_image{
+  font-size:20px;
+  text-align:right;
+}
+
+/*投稿詳細のコメント部分*/
+.comment_customer{
+  clear:both;
+}
+
+/*投稿詳細のフォロー部分*/
+.post_customer_name_image.follow{
+  font-size:15px;
+}
+
+/*投稿詳細のフォローボタン*/
+.show_button{
+  clear:both;
+  float:right;
+}
+
+/*フォローのフラッグの色*/
+.fa-flag{
+  color:#94BAD9;
+}
+
+.fa-heart{
+  color:#D3888E;
+}
+

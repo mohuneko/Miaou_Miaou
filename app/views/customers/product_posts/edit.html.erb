@@ -5,16 +5,17 @@
 
 	  <div class="col-10">
 
-	  	<h3 class="title">猫グッズ編集<i class="fas fa-cat"></i></h3>
+	  	<h3 class="title">猫グッズ編集<i class="fas fa-cat"></i></h3><br>
 
 	  	<div class="product_form">
          <%= form_for @product_post, url: customers_product_post_path(@product_post) do |f| %>
             <div class="product_picture">
-            	  <%= f.attachment_field :picture %> <!-- 猫グッズ画像投稿 -->
+            	  <%= f.file_field :picture %> <!-- 猫グッズ画像投稿 -->
             </div>
 
              <div class="category"> <!-- カテゴリープルダウン -->
              	  <%= f.label :カテゴリー %>
+                    <%= f.collection_select :category_id, Category.all, :id, :category %>
              	 
              </div>
 
@@ -80,7 +81,7 @@
 	              <!-- 投稿ボタン -->
 	              <div class="col-md-8">
 
-	              	 <%= f.submit "変更を保存する", class:"btn btn-success" %>
+	              	 <%= f.submit "変更を保存する", class:"button" %>
 
 	              </div>
 

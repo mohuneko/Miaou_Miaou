@@ -3,20 +3,21 @@
 
 		<%= render 'layouts/sidebar' %>
 
-		<div class="product_favorite_form">
 
 	     <div class="col-10">
 
-	     	<h3>猫グッズいいね</h3>
-	     	<p><%= link_to "全#{@product_post.count}件" %></p>
+	     	   <%= image_tag("favorite2.jpg", size:'400x80') %>
+	     	   <p><%= link_to "全#{@product_posts.count}件" %></p>
 
-	     	<% @products.each do |product| %>
+         <div class="row">
+
+	         	<% @product_posts.each do |product_post| %>
 
 	     	 <div class="col-3">
 	     	 	
            <%= link_to customers_product_post_path(product_post.id) do %>
-           <%= image_tag product_post.image_id.to_s %>
-       		 <%= attachment_image_tag product_post, :picture, format:'jpeg', size:"150x150" %> <!-- 商品画像 -->
+           <%= image_tag product_post.picture.to_s, size:"150x150" %>
+       		  <!-- 商品画像 -->
            <div class="index_title">
        		 <p>商品名：<%= product_post.product_name %></p> <!-- 商品名 -->
 
@@ -42,13 +43,14 @@
           </div>
        	 <% end %>
         
-
+           <div class="page">
+       	   <%= paginate @product_posts %>
+          </div>
 
 
 	     	 </div>
 
-
 	     </div>
 	  </div>
-	</div>
+  </div>
 </div>

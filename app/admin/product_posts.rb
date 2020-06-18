@@ -26,7 +26,7 @@ ActiveAdmin.register ProductPost do
   form do |f|
     f.inputs do
       f.input :customer_id
-      f.input :picture_id, as: :file, input_html: { accept: 'image/*' }
+      f.input :picture, :as => :file
       f.input :category_id, as: :select, collection: Category.all, :member_label => :category
       # f.input :category_id, as: :select, collection: Category.all.map { |m| [m.id.to_s + ' - ' + m.category, m.id] }
       f.input :product_name
@@ -39,6 +39,22 @@ ActiveAdmin.register ProductPost do
     f.actions
   end
 
-  permit_params :customer_id, :category_id, :price_rate, :favorite_rate, :total_rate, :product_name, :price, :description, :picture_id, :category, :is_valid
+  show do |item_image|
+    attributes_table do
+      row :customer_id
+      row :picture do
+        image_tag(product_post.picture.url)
+      end
+      row :category_id
+      row :product_name
+      row :price
+      row :price_rate
+      row :favorite_rate
+      row :total_rate
+      row :description
+    end
+  end
+
+  permit_params :customer_id, :category_id, :price_rate, :favorite_rate, :total_rate, :product_name, :price, :description, :picture, :category, :is_valid
   
 end

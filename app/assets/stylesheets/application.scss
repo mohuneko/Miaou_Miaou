@@ -22,6 +22,13 @@
   padding:0;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
 @font-face {
   font-family: "cute";
   src: font-url('rounded-mplus-1p-regular.ttf') format('truetype');
@@ -303,7 +310,7 @@ label.side {
 	margin: auto;
 }
 
-/*loginボタン*/
+/*ボタン*/
 .button {
   display       : inline-block;
   text-align    : center;      /* 文字位置   */
@@ -317,3 +324,116 @@ label.side {
 .button:hover {
   opacity       : 0.7;         /* カーソル時透明度 */
 }
+
+/*ボタン2*/
+.button.red {
+  display       : inline-block;
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 7px 29px;   /* 余白       */
+  background    : #FFDCEF;     /* 背景色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  opacity       : 1;           /* 透明度     */
+  transition    : .3s;         /* なめらか変化 */
+}
+.button.red:hover {
+  opacity       : 0.7;         /* カーソル時透明度 */
+}
+
+
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+.page{
+  text-align:center;
+  margin:0 auto;
+}
+
+.mypage{
+  padding-top:70px;
+}
+
+
+/*
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr{
+  border-bottom: solid 1px white;
+}
+
+table tr:last-child{
+  border-bottom: none;
+}
+
+table th{
+  position: relative;
+  text-align: left;
+  width: 30%;
+  background-color: #52c2d0;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+table th:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #52c2d0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+table td{
+  text-align: left;
+  width: 50%;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px 0;
+}
+*/
+
+table.mypage_list{
+  width: 100%;
+  border-spacing: 0;
+}
+
+table.mypage_list th{
+  border-bottom: solid 4px #D1888D;
+  padding: 8px 0;
+}
+
+table.mypage_list td{
+  border-bottom: solid 4px #ddd;
+  text-align: center;
+  padding: 8px 0;
+}
+
+/*mypageの画像*/
+.mypage_image{
+  padding-left:35px;
+}
+
+

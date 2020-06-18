@@ -10,7 +10,7 @@
          <% end %>
 
         <p class="product_image">
-        	 <%= image_tag @product_post.picture.to_s %>
+        	 <%= image_tag @product_post.picture.to_s, size:"330x330" %>
         </p>
 
         <div class="product_form">
@@ -19,33 +19,37 @@
 
          <% if @product_post.favorited_by?(current_customer) %>
               <%= link_to customers_product_post_product_favorites_path(@product_post), method: :delete do %>
-              <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-              <%= @product_post.product_favorites.count %>いいね
+              <p class="good1">　<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+              <%= @product_post.product_favorites.count %></p>
               <% end %>
           <% else %>
               <%= link_to customers_product_post_product_favorites_path(@product_post), method: :post do %>
-              <i class="fa fa-heart-o" aria-hidden="true"></i>
-              <%= @product_post.product_favorites.count %>いいね
+              <p class="good1">　<i class="fa fa-heart-o" aria-hidden="true"></i>
+              <%= @product_post.product_favorites.count %></p>
               <% end %>
           <% end %>
 
-	         <p class="product_name">商品名：<%= @product_post.product_name %></p>
-	         <p class="product_price">価格：<%= @product_post.price %>円</p>
-        </div>
+	         <p class="product_name good">商品名：<%= @product_post.product_name %></p>
+	         <p class="product_price good">　価格：<%= @product_post.price %>円</p><br>
+        
 
         <!-- いいね機能ここまで -->
 
 
         <!-- 評価 -->
-        <div class="product_post_rate">
-          	 <p class="show_title">価格：</p>
+        
+          	 <p class="show_title">　　　価格：</p>
           	 <div id="star1-price_rate-<%= @product_post.id %>"></div><br>
 
              <p class="show_title">お気に入り：</p>
              <div id="star2-favorite_rate-<%= @product_post.id %>"></div><br>
 
-             <p class="show_title">総合：</p>
+             <p class="show_title">　　　総合：</p>
              <div id="star3-total_rate-<%= @product_post.id %>"></div><br>
+
+          </div>
+
+          <div class="product_description">
 
              <p class="show_title">説明：</p>
              <%= @product_post.description %><br>
@@ -54,17 +58,44 @@
 　　　　　　<!-- 編集・削除ボタン -->
 
         <% if @product_post.customer_id == current_customer.id %>
-           <br><p><%= link_to "編集する", edit_customers_product_post_path(@product_post), class:"button" %></p>
-           <p><%= link_to "削除する", @product_post_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "button destroy_product_post_#{@product_post.id}" %></p>
+           <br><p><%= link_to "編集する", edit_customers_product_post_path(@product_post), class:"button" %>
+           <%= link_to "削除する", @product_post_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "button destroy_product_post_#{@product_post.id}" %></p>
         <% end %>
 
         <!-- 編集・削除ボタンここまで -->
 
         <!-- 投稿者の情報 -->
+
+        <div class="post_customer">
+          <p class="post_customer_name_image">
+          投稿者：<%= @product_post.customer.name %>
+          <%= image_tag @product_post.customer.profile_image.to_s, size:"100x100" %>
+          </p>
+
+        <div class="post_customer_name_image follow">
+          <p><i class="fas fa-flag"></i><%= "フォロー数: #{@customer.follower.count}" %> <i class="fa fa-heart"></i><%= "フォロワー数: #{@customer.followed.count}" %></p>
+          <td>
+        </div>
+
+        <div class="show_button">
+
+                <% unless @customer == current_customer %>
+          <% if current_customer.following?(@customer) %>
+           <p><%= link_to 'フォロー外す', unfollow_path(@customer.id), method: :DELETE, class: "button red" %>
+          <% else %>
+            <%= link_to 'フォローする', follow_path(@customer.id), method: :POST, class: "button" %></p>
+          <% end %>
+          <% end %>
+
+        </div>
+ 
+        </div>
+
         <!-- 投稿者の情報ここまで -->
 
         <!-- コメント表示 -->
-        <h3>コメント</h3>
+
+        <br><h3 class="comment_customer">コメント</h3>
 
         <div class="comment_customer">
 
@@ -72,13 +103,15 @@
             <% @product_post.product_comments.each do |product_comment| %>
              <div class="comment">
               <div class="comment-body">
-                <div class="profile_image">
-                 <%= image_tag('noimage.jpg',style:"width:60px;height:60px;") %>
-                </div>
-                <div class="comment-text">
-                  <%= product_comment.customer.name %>
 
-                  <p class="comment_title">総合：</p>
+                <div class="profile_image">
+                 <%= image_tag product_comment.customer.profile_image.to_s, size:"60x60" %>
+                 <%= product_comment.customer.name %>
+                </div>
+
+                <div class="comment-text">
+
+                  <p class="show_title">総合：</p>
                   <div id="star4-total_rate-<%= product_comment.id %>"></div><br> <!-- コメント星レビュー -->
 
                   <script>
@@ -101,6 +134,8 @@
                    <% end %>
                 </div>
               </div>
+
+               <%=  image_tag("line.jpg", size:'530x65') %>
             </div>
             <% end %>
 
@@ -178,9 +213,6 @@
 
 
         </div>
-
-
-
 
 
 	  </div>

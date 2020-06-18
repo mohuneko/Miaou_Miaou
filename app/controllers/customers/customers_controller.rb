@@ -6,6 +6,6 @@ class Customers::CustomersController < ApplicationController
 
  private
  def customer_params
- 	params.require(:customer).permit(:name, :password, :tell, :profile_image_id, :status)
+ 	params.require(:customer).permit(:name, :password, :tell, :profile_image, :status)
  end
 end

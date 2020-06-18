@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+     <div class="first_form">
+
+      <h3>本当に退会しますか？<i class="fas fa-door-open"></i></h3>
+　　　　<p>退会すると、これまでの投稿が見られなくなります。</p>
+　　　　
+      	<a><%= link_to '退会しない', customers_fix_path, class:"button" %></a>
+        <a><%= link_to "退会する", customers_withdraw_path, method: :put, "data-confirm" => "本当に退会しますか？", class:"button red" %></a><br>
+
+     </div>
+  </div>
+</div>

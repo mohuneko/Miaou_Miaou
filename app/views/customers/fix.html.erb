@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+     <div class="first_form">
+
+      <h3>登録情報編集 <i class="fas fa-user-cog"></i></h3><br>
+
+<%= form_with model: @customer, url: '/customers/fix',local: true do |f| %>
+<table class="table">
+  　<tr>
+      <th>プロフィール画像</th>
+      <td>
+        <%= f.file_field :profile_image %>
+      </td>
+    </tr>
+    <tr>
+      <th>名前</th>
+      <td>
+          <%= f.text_field :name, autofocus: true, class: "field" %>
+      </td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td>
+          <%= f.phone_field :tell, autofocus: :true, class: "field" %>
+      </td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td colspan="2">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field" %>
+      </td>
+    </tr>
+  </table>
+    <div class="actions">
+      <%= f.submit "編集内容を保存する", class:"button"%>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to "退会する", customers_withdraw_path, class:"button red" %>
+   </div>
+  </div>
+</div>
+
+
+
+
+
+
