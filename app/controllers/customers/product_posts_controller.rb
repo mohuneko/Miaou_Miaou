@@ -9,6 +9,7 @@ class Customers::ProductPostsController < ApplicationController
   @product_post = ProductPost.find(params[:id])
   @product_comment = ProductComment.new #コメントの投稿
   @customer = @product_post.customer
+  @comments = ProductComment.where(product_post_id: @product_post.id).page(params[:page] || 1).per(5)
  end
 
  def favorite

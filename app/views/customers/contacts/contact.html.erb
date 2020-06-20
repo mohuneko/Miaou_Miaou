@@ -3,26 +3,35 @@
 
 		<%= render 'layouts/sidebar' %>
 
-	   <div class="first_field">
-		     <div class="col-10">
 
-						 <h3 class="title">お問い合わせ<i class="fas fa-cat"></i></h3>
-
-						 <%= form_for @contact do |f| %>
-
-						 <%= f.label :名前 %>
-						 <%= f.text_field :contact_name, autofocus: true, class: "field" %>
-
-						 <%= f.label :メールアドレス %>
-						 <%= f.email_field :contact_email, autofocus: true, autocomplete: "email", class: "field" %>
-
-						 <%= f.label :お問い合わせ内容 %>
-						 <%= f.text_area :contact_contect, autofocus: true, class: "filed" %>
-
-						 <%= f.submit "投稿する", class:"button" %>
+		    <div class="col-10 contact_page">
 
 
-		      </div>
-	   </div>
+					<%= form_for(@contact, url: { action: :confirm }) do |f| %>
+
+						  <div class="contact_form">
+
+								   <h3 class="title">お問い合わせフォーム <i class="fa fa-envelope-o" aria-hidden="true"></i></h3>
+
+								    <div>
+								    	<strong>名前</strong>
+								    	<p><%= f.text_field :contact_name, autofocus: true, class: "field" %></p>
+								    </div>
+								    <div>
+								    	<strong>メールアドレス</strong>
+								    	<p> <%= f.email_field :contact_email, autofocus: true, autocomplete: "email", class: "field" %></p>
+								    </div>
+                    <div>
+                    	<strong>お問い合わせ内容</strong>
+                    	<p><%= f.text_area :contact_content, autofocus: true, class: "field" %></p>
+                    </div>
+
+										  <%= f.submit "確認画面へ", class:"button" %>
+
+						　</div>
+					<% end %>
+
+		    </div>
+
   </div>
  </div>

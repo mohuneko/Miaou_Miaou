@@ -31,13 +31,13 @@
 
 	         <p class="product_name good">商品名：<%= @product_post.product_name %></p>
 	         <p class="product_price good">　価格：<%= @product_post.price %>円</p><br>
-        
+
 
         <!-- いいね機能ここまで -->
 
 
         <!-- 評価 -->
-        
+
           	 <p class="show_title">　　　価格：</p>
           	 <div id="star1-price_rate-<%= @product_post.id %>"></div><br>
 
@@ -51,10 +51,10 @@
 
           <div class="product_description">
 
-             <p class="show_title">説明：</p>
+             <br><p class="show_title">説明：</p>
              <%= @product_post.description %><br>
 
-        
+
 　　　　　　<!-- 編集・削除ボタン -->
 
         <% if @product_post.customer_id == current_customer.id %>
@@ -88,7 +88,7 @@
           <% end %>
 
         </div>
- 
+
         </div>
 
         <!-- 投稿者の情報ここまで -->
@@ -99,8 +99,8 @@
 
         <div class="comment_customer">
 
-          
-            <% @product_post.product_comments.each do |product_comment| %>
+
+            <% @comments.each do |product_comment| %>
              <div class="comment">
               <div class="comment-body">
 
@@ -139,7 +139,10 @@
             </div>
             <% end %>
 
+
         </div>
+
+        <%= paginate @comments %>
 
         <!-- コメント表示ここまで -->
 
@@ -205,7 +208,7 @@
             scoreName: 'product_comment[total_rate]',
             half: true,
            });
-           
+
 
         	 </script>
 

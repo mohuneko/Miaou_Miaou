@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   devise_for :customers, controllers: {
   	sessions:      'customers/sessions',
   	passwords:     'customers/passwords',
@@ -9,16 +9,16 @@ Rails.application.routes.draw do
   }
 
   root 'home#top'
-  get 'customers/home/about' => 'customers/home#about' #abouotページ
-  get 'customers/home/contact' => 'customers/home#contact' #問合せフォーム
-  get 'customers/home/confirm' => 'customers/home#confirm' #問合せ内容確認画面
-  get 'customers/home/thanks' => 'customers/home#thanks' #問合せありがとうページ
+  get 'customers/about' => 'customers/home#about' #abouotページ
+  get 'customers/contact' => 'customers/contacts#contact' #問合せフォーム
+  post 'customers/confirm' => 'customers/contacts#confirm' #問合せ内容確認画面
+  post 'customers/thanks' => 'customers/contacts#thanks' #問合せありがとうページ
 
   get 'customers/mypage' => 'customers#mypage' #myページ
   get 'customers/edit' => 'customers#edit' #パスワード編集ページ
   get 'customers/fix' => 'customers#fix' #編集ページ
   patch 'customers/fix' => 'customers#fix_update'
-  put 'customers/fix' => 'customres#fix_update'
+  put 'customers/fix' => 'customers#fix_update'
   get 'customers/withdraw' => 'customers#withdraw' #退会ページ
   put 'customers/withdraw' => 'customers#withdraw_update'
 

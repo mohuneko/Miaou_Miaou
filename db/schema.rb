@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
     t.string "password"
     t.string "tell"
     t.string "profile_image"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true

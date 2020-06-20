@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="row">
+
+		<%= render 'layouts/sidebar' %>
+
+	   <div class="first_field">
+		     <div class="col-10 contact_page">
+
+		     	<%= form_for @contact, :url => customers_thanks_path do |f| %>
+
+		     	  <div class="confirm_form">
+
+				     	 <h3 class="title">内容確認</h3>
+
+						     	  <div>
+						     	      <strong>名前</strong>
+						     	    <p>
+						     	    	<%= f.hidden_field :contact_name %>
+						     	    	<%= @contact.contact_name %>
+						     	    </p>
+						     	  </div>
+						     	  <div>
+						     	  	   <strong>メールアドレス</strong>
+						     	  	<p>
+						     	  		<%= f.hidden_field :contact_email %>
+						     	  		<%= @contact.contact_email %>
+						     	  	</p>
+						     	  </div>
+						     	  <div>
+						     	  	<strogn>お問い合わせ内容</strogn>
+						     	  	<p>
+						     	  		<%= f.hidden_field :contact_content %>
+						     	  		<%= @contact.contact_content %>
+						     	  	</p>
+						     	  </div>
+
+						     	      <%= f.submit "戻る", name: "back" %>
+						     	      <%= f.submit "送信する" %>
+						 </div>
+					</div>
+			     <% end %>
+		  </div>
+	</div>
+</div>
+

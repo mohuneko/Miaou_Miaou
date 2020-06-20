@@ -24,6 +24,9 @@
   mount_uploader :profile_image, ImagesUploader
 
 
+  validates :name, presence: true
+  validates :tell, presence: true
+
 #フォローする
  def follow(customer_id)
    follower.create(followed_id: customer_id)

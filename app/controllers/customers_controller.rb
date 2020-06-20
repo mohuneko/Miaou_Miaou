@@ -17,6 +17,7 @@ class CustomersController < ApplicationController
  end
 
  def fix_update
+ 	binding.pry
  	@customer = current_customer
  	if @customer.update(customer_params)
  		redirect_to customers_mypage_path
@@ -35,6 +36,6 @@ class CustomersController < ApplicationController
 
  private
  def customer_params
- 	params.require(:customer).permit(:name, :password, :tell, :profile_image, :status)
+ 	params.require(:customer).permit(:name, :tell, :profile_image, :email)
  end
 end
