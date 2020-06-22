@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_015105) do
+ActiveRecord::Schema.define(version: 2020_06_22_011102) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "cafe_categories", force: :cascade do |t|
+    t.string "category"
+    t.boolean "is_valid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cafe_comments", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "cafe_post_id"
@@ -69,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
 
   create_table "cafe_posts", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "category_id"
+    t.integer "cafe_category_id"
     t.float "price_rate"
     t.float "free_rate"
     t.float "total_rate"
@@ -77,13 +84,6 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
     t.integer "price"
     t.text "description"
     t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "category"
-    t.boolean "is_valid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -114,6 +114,13 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.string "category"
+    t.boolean "is_valid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_comments", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "product_post_id"
@@ -132,7 +139,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_015105) do
 
   create_table "product_posts", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "category_id"
+    t.integer "product_category_id"
     t.float "price_rate"
     t.float "favorite_rate"
     t.float "total_rate"

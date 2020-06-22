@@ -4,7 +4,7 @@
     <%= render 'layouts/sidebar' %>
 
     <div class="col-10">
-       
+
        <h3 class="title">猫グッズ投稿<i class="fas fa-cat"></i></h3>
 
        <div class="product_form">
@@ -15,7 +15,10 @@
 
              <div class="category"> <!-- カテゴリープルダウン -->
              	  <%= f.label :カテゴリー %>
-                <%= f.collection_select :category_id, Category.all, :id, :category %>
+                <%#= f.collection_select :category_id, Category.all, :id, :category %>
+                <%= f.collection_select :product_category_id, ProductCategory.all, :id, :category %>
+                <%#= select :category_id, :name, {"商品"=>"0","食べ物"=>"1","おもちゃ"=>"2","その他"=>"3"}, include_black: true %>
+                <%#= f.select :category_id, [['商品', 0],['食べ物', 1],['おもちゃ',2],['その他',3]], { include_blank: false, selected: 0 } %>
 
              </div>
 
@@ -25,8 +28,7 @@
 	             	<%= f.label :価格 %><!-- 商品価格 -->
 	             	<%= f.text_field :price, class:"field" %>円
              </div>
-      
-             
+
              	 <!-- 評価-->
              	 <div class="form_group row" id="star1">
 	             	 	<%= f.label :price_rate,'価格', class:"col-md-4 col-form-label" %>
@@ -92,7 +94,7 @@
 
              </div>
 
-         <% end %> 
+         <% end %>
        </div>
     </div>
 

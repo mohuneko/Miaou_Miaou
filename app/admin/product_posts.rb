@@ -18,7 +18,7 @@ ActiveAdmin.register ProductPost do
   index do
     column :id
     column :product_name
-    column :category
+    column :product_category
     column :is_valid
     actions
   end
@@ -27,7 +27,7 @@ ActiveAdmin.register ProductPost do
     f.inputs do
       f.input :customer_id
       f.input :picture, :as => :file
-      f.input :category_id, as: :select, collection: Category.all, :member_label => :category
+      f.input :product_category, as: :select, collection: ProductCategory.all, :member_label => :category
       # f.input :category_id, as: :select, collection: Category.all.map { |m| [m.id.to_s + ' - ' + m.category, m.id] }
       f.input :product_name
       f.input :price
@@ -45,7 +45,7 @@ ActiveAdmin.register ProductPost do
       row :picture do
         image_tag(product_post.picture.url)
       end
-      row :category_id
+      row :product_category_id
       row :product_name
       row :price
       row :price_rate
@@ -55,6 +55,6 @@ ActiveAdmin.register ProductPost do
     end
   end
 
-  permit_params :customer_id, :category_id, :price_rate, :favorite_rate, :total_rate, :product_name, :price, :description, :picture, :category, :is_valid
+  permit_params :customer_id, :product_category_id, :price_rate, :favorite_rate, :total_rate, :product_name, :price, :description, :picture, :category, :is_valid
   
 end

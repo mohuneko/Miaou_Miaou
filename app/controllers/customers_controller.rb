@@ -17,7 +17,6 @@ class CustomersController < ApplicationController
  end
 
  def fix_update
- 	binding.pry
  	@customer = current_customer
  	if @customer.update(customer_params)
  		redirect_to customers_mypage_path

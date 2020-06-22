@@ -5,9 +5,8 @@ class Customers::ContactsController < ApplicationController
  end
 
  def confirm #入力値のチェック
- ##@contact = Contact.new(contact_params)
+ #@contact = Contact.new(contact_params)
  #@contact.customer_id = current_customer.id
-binding.pry
  @contact = current_customer.contact.build(contact_params)
 
  if @contact.valid?
@@ -21,9 +20,11 @@ end
 
  def thanks #メール送信
  @contact = Contact.new(contact_params)
+ @contact.customer_id = current_customer.id
  if params[:back]
  	render :action => "contact"
  else
+ 	@contact.save!
  	#ContactMailer.received_email(@contact).deliver_now
  	render :action => "thanks"
  end

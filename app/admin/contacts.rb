@@ -14,5 +14,17 @@ ActiveAdmin.register Contact do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
+  #一覧ページ
+  index do
+    column :id
+    column :customer_id
+    column :contact_name
+    column :contact_email
+    column :contact_content
+
+    actions
+  end
+
+  permit_params :customer_id, :contact_name, :contact_email, :contact_content
 end
