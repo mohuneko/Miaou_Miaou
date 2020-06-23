@@ -9,7 +9,8 @@
   has_many :cafe_posts, dependent: :destroy
   has_many :cafe_comments, dependent: :destroy
   has_many :product_favorites, dependent: :destroy
-  has_many :favorite_posts, through: :product_favorites, source: :product_post  # 孫要素の取得
+  has_many :favorite_products, through: :product_favorites, source: :product_post  # 孫要素の取得
+  has_many :favorite_cafes, through: :cafe_favorites, source: :cafe_post  # 孫要素の取得
   has_many :product_posts, dependent: :destroy
   has_many :product_comments, dependent: :destroy
   has_many :contact

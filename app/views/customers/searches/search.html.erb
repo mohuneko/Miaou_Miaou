@@ -1,0 +1,85 @@
+<div class="container">
+	<div class="row">
+
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col-10">
+
+    	<h3>検索</h3>
+
+       <%#= image_tag("myposts.jpg", size:'250x80') %><br>
+       <%#= link_to "全#{@product_posts.count}件" %>
+
+       <div class="row">
+
+       	 <p>検索</p>
+
+         <% form_tag(search_path, :method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', :name => nil %>
+         <% end %>
+
+         <% @product_posts.each do |product_post| %>
+
+			       	<div class="col-3">
+			  
+			       		<%= link_to customers_product_post_path(product_post.id) do %>
+			           <%= image_tag product_post.picture.to_s, size:"150x150" %>
+			       		<!-- 商品画像 -->
+			           <div class="index_title">
+			       		 <p class="index_product_name">商品名：<%= product_post.product_name %></p> <!-- 商品名 -->
+
+			       		 <% end %>
+
+			       		 <!-- 評価 -->
+			       		 <p class="index_total">総合：</p>
+			       		 <div id="star3-total_rate-<%= product_post.id %>"></div> <!-- 評価 -->
+			       		</div>
+			       		   <script>
+			       		   	$('#star3-total_rate-<%= product_post.id %>').raty({
+					           	size    : 36,
+					            starOff: '<%= asset_path('star-off.png') %>',
+					            starOn : '<%= asset_path('star-on.png') %>',
+					            starHalf: '<%= asset_path('star-half.png') %>',
+					            scoreName: 'product_post[total_rate]',
+					            readOnly: true,
+					            half: true,
+					            score: <%= product_post.total_rate %>,
+			               });
+			       		   </script>
+
+
+			              <!-- いいね数とコメント数 -->
+			              <div class="index_favorite">
+
+			               <% if product_post.favorited_by?(current_customer) %>
+			              <%= link_to customers_product_post_product_favorites_path(product_post), method: :delete do %>
+			              <p class="good2">　<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+			              <%= product_post.product_favorites.count %></p>
+			            <div class="index_comment">
+			              <%= link_to " #{product_post.product_comments.count}", customers_product_post_path(product_post.id), class:"fa fa-commenting-o" %>
+			            </div>
+			              <% end %>
+			          <% else %>
+			              <%= link_to customers_product_post_product_favorites_path(product_post), method: :post do %>
+			              <p class="good2">　<i class="fa fa-heart-o" aria-hidden="true"></i>
+			              <%= product_post.product_favorites.count %></p>
+			            <div class="index_comment">
+			              <%= link_to " #{product_post.product_comments.count}", customers_product_post_path(product_post.id), class:"fa fa-commenting-o" %>
+			            </div>
+			              <% end %>
+			          <% end %>
+
+			             </div>
+
+			          　　　<!-- いいね数とコメント -->
+
+			          </div>
+			    <% end %>
+
+       	</div>
+       </div>
+
+    </div>
+  </div>
+</div>

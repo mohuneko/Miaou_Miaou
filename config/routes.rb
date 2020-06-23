@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -22,15 +23,19 @@ Rails.application.routes.draw do
   get 'customers/withdraw' => 'customers#withdraw' #退会ページ
   put 'customers/withdraw' => 'customers#withdraw_update'
 
-  get 'customers/cafe_posts/favorite' => 'customers/cafe_post#favorite' #猫カフェ投稿いいね一覧
+  get 'customers/cafe_posts/favorite' => 'customers/cafe_posts#favorite' #猫カフェ投稿いいね一覧
   get 'customers/product_posts/favorite' => 'customers/product_posts#favorite' #猫グッズ投稿いいね
+
+  get 'customers/product_posts/mypost' => 'customers/product_posts#mypost' #猫グッズ自分の投稿
 
   post 'follow/:id' => 'customers/relationships#follow', as: 'follow' #フォローする
   delete 'unfollow/:id' => 'customers/relationships#unfollow', as: 'unfollow' #フォローを外す
 
 # 　resources :customers, only: [:show, :index, :edit, :update] #フォロー
-  get 'customers/followers' => 'customers/relationships#followers', as: 'followers'
-  get 'customers/followees' => 'customers/relationships#followees', as: 'followees'
+  get 'customers/:customer_id/followers' => 'customers/relationships#followers', as: 'followers'
+  get 'customers/:customer_id/follows' => 'customers/relationships#follows', as: 'follows'
+
+  get 'customers/search' => 'customers/searches#search' #search
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

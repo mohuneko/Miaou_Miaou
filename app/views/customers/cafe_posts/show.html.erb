@@ -1,0 +1,223 @@
+<div class="container">
+	<div class="row">
+
+		<%= render 'layouts/sidebar' %>
+
+	  <div class="col-10">
+
+	  	<h3 class="title">猫カフェ詳細<i class="fas fa-cat"></i></h3>
+         <%= link_to @cafe_post_path do %>
+         <% end %>
+
+        <p class="product_image">
+        	 <%= image_tag @cafe_post.picture.to_s, size:"330x330" %>
+        </p>
+
+        <div class="product_form">
+
+          <!-- いいね機能 -->
+
+         <% if @cafe_post.favorited_by?(current_customer) %>
+              <%= link_to customers_cafe_post_cafe_favorites_path(@cafe_post), method: :delete do %>
+              <p class="good1">　<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+              <%= @cafe_post.cafe_favorites.count %></p>
+              <% end %>
+          <% else %>
+              <%= link_to customers_cafe_post_cafe_favorites_path(@cafe_post), method: :post do %>
+              <p class="good1">　<i class="fa fa-heart-o" aria-hidden="true"></i>
+              <%= @cafe_post.cafe_favorites.count %></p>
+              <% end %>
+          <% end %>
+
+	         <p class="product_name good">店名：<%= @cafe_post.shop_name %></p>
+	         <p class="product_price good">　価格：<%= @cafe_post.price %>円/30分</p><br>
+
+
+        <!-- いいね機能ここまで -->
+
+
+        <!-- 評価 -->
+
+          	 <p class="show_title">　　価格：</p>
+          	 <div id="star5-price_rate-<%= @cafe_post.id %>"></div><br>
+
+             <p class="show_title">まったり：</p>
+             <div id="star6-free_rate-<%= @cafe_post.id %>"></div><br>
+
+             <p class="show_title">　　総合：</p>
+             <div id="star7-total_rate-<%= @cafe_post.id %>"></div><br>
+
+          </div>
+
+          <div class="product_description">
+
+             <br><p class="show_title">説明：</p>
+             <%= @cafe_post.description %><br>
+
+
+　　　　　　<!-- 編集・削除ボタン -->
+
+        <% if @cafe_post.customer_id == current_customer.id %>
+           <br><p><%= link_to "編集する", edit_customers_cafe_post_path(@cafe_post), class:"button" %>
+           <%= link_to "削除する", @cafe_post_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "button destroy_cafe_post_#{@cafe_post.id}" %></p>
+        <% end %>
+
+        <!-- 編集・削除ボタンここまで -->
+
+        <!-- 投稿者の情報 -->
+
+        <div class="post_customer">
+          <p class="post_customer_name_image">
+          投稿者：<%= @cafe_post.customer.name %>
+          <%= image_tag @cafe_post.customer.profile_image.to_s, size:"100x100" %>
+          </p>
+
+        <div class="post_customer_name_image follow">
+          <p><i class="fas fa-flag"></i><%= "フォロー数: #{@customer.follower.count}" %> <i class="fa fa-heart"></i><%= "フォロワー数: #{@customer.followed.count}" %></p>
+          <td>
+        </div>
+
+        <div class="show_button">
+
+                <% unless @customer == current_customer %>
+          <% if current_customer.following?(@customer) %>
+           <p><%= link_to 'フォロー外す', unfollow_path(@customer.id), method: :DELETE, class: "button red" %>
+          <% else %>
+            <%= link_to 'フォローする', follow_path(@customer.id), method: :POST, class: "button" %></p>
+          <% end %>
+          <% end %>
+
+        </div>
+
+        </div>
+
+        <!-- 投稿者の情報ここまで -->
+
+        <!-- コメント表示 -->
+
+        <br><h3 class="comment_customer">コメント</h3>
+
+        <div class="comment_customer">
+
+
+            <% @comments.each do |cafe_comment| %>
+             <div class="comment">
+              <div class="comment-body">
+
+                <div class="profile_image">
+                 <%= image_tag cafe_comment.customer.profile_image.to_s, size:"60x60" %>
+                 <%= cafe_comment.customer.name %>
+                </div>
+
+                <div class="comment-text">
+
+                  <p class="show_title">総合：</p>
+                  <div id="star8-total_rate-<%= cafe_comment.id %>"></div><br> <!-- コメント星レビュー -->
+
+                  <script>
+                    $('#star8-total_rate-<%= cafe_comment.id %>').raty({
+                      size    : 36,
+                      starOff: '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      scoreName: 'cafe_comment[total_rate]',
+                      readOnly: true,
+                      half: true,
+                      score: <%= cafe_comment.total_rate %>,
+                    });
+                  </script>
+
+                  <%= cafe_comment.comment %>
+
+                   <% if cafe_comment.customer == current_customer %>
+                    <%= link_to '', customers_cafe_post_cafe_comment_path(@cafe_post,cafe_comment), method: :delete, class:"fas fa-trash fa trash_black" %>
+                   <% end %>
+                </div>
+              </div>
+
+               <%=  image_tag("line.jpg", size:'530x65') %>
+            </div>
+            <% end %>
+
+
+        </div>
+
+        <%= paginate @comments %>
+
+        <!-- コメント表示ここまで -->
+
+        <!-- コメントフォーム -->
+        <%= form_for [@cafe_post, @cafe_comment], url:customers_cafe_post_cafe_comments_path(@cafe_post) do |f| %>
+        <div class="comment_form">
+         <div class="col-6">
+
+            <div class="form_group row" id="star8">
+              <%= f.label :total_rate, '総合', class:"col-md-4 col-form-label" %>
+              <%= f.hidden_field :total_rate, id: :review_star %>
+            </div>
+
+              <%= f.text_area :comment,row:'3', class: "form-control",placeholder:"コメントここに" %>
+         </div>
+              <%= f.submit "投稿する", class:"button" %>
+        <% end %>
+        </div><br>
+         <!-- コメントフォームここまで -->
+
+
+        <!-- レビューのscript -->
+
+        	 <script>
+           $('#star5-price_rate-<%= @cafe_post.id %>').raty({
+           	size    : 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'cafe_post[price_rate]',
+            readOnly: true,
+            half: true,
+            score: <%= @cafe_post.price_rate %>,
+           });
+
+           $('#star6-free_rate-<%= @cafe_post.id %>').raty({
+           	size    : 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'cafe_post[free_rate]',
+            readOnly: true,
+            half: true,
+            score: <%= @cafe_post.free_rate %>,
+           });
+
+           $('#star7-total_rate-<%= @cafe_post.id %>').raty({
+           	size    : 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'cafe_post[total_rate]',
+            readOnly: true,
+            half: true,
+            score: <%= @cafe_post.total_rate %>,
+           });
+
+            $('#star8').raty({
+            size    : 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'cafe_comment[total_rate]',
+            half: true,
+           });
+
+
+        	 </script>
+
+           <!-- レビューのscriptここまで -->
+
+
+        </div>
+
+
+	  </div>
+	</div>
+</div>

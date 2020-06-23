@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col-10">
+
+    	<h3>follow Customers</h3>
+
+    	<div class="row">
+
+    	  <% @customers.each do |customer| %>
+            <div class="col-3">
+              <%= image_tag customer.profile_image.to_s, size:"150x150" %>
+         	    <%= customer.name %>
+         	  </div>
+        <% end %>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+

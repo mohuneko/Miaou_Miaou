@@ -3,6 +3,10 @@
    <h2>Category</h2>
 
    <p><i class="fas fa-paw"></i></p>
+
+   <p><%#= text_field_tag :search %>
+      <%#= submit_tag '検索', :product_name => nil, class: 'search-btn' %></p>
+
    <p><%= link_to "お問い合わせ", customers_contact_path %></p>
    <div class="menu">
     <label class="side" for="menu_bar01">猫カフェ</label>
@@ -10,14 +14,14 @@
     <ul id="links01">
         <li><a href="/customers/cafe_posts/"><i class="far fa-comments"></i>投稿を見る</a></li>
         <li><a href="/customers/cafe_posts/new"><i class="fas fa-pencil-alt"></i>投稿する</a></li>
-        <li><a href=""><i class="fas fa-heart"></i>お気に入り</a></li>
+        <li><a href="/customers/cafe_posts/favorite"><i class="fas fa-heart"></i>お気に入り</a></li>
     </ul>
     <label class="side" for="menu_bar02">猫グッズ</label>
     <input type="checkbox" id="menu_bar02" class="accordion" />
     <ul id="links02">
         <li><a href="/customers/product_posts/"><i class="far fa-comments"></i>投稿を見る</a></li>
         <li><a href="/customers/product_posts/new"><i class="fas fa-pencil-alt"></i>投稿する</a></li>
-        <li><a href=""><i class="fas fa-heart"></i>お気に入り</a></li>
+        <li><a href="/customers/product_posts/favorite"><i class="fas fa-heart"></i>お気に入り</a></li>
     </ul>
 </div>
 

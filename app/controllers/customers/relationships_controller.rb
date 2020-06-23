@@ -23,13 +23,13 @@ class Customers::RelationshipsController < ApplicationController
 	end
 
   def followers
-   @customer = Customer.find(params[:id])
-   @customers = @customer.following_customer
+   @customer = Customer.find(params[:customer_id])
+   @customers = @customer.follower_customer
   end
 
-  def followees
-   @customer = Customer.find(params[:id])
-   @customers = @customer.follower_customer
+  def follows
+   @customer = Customer.find(params[:customer_id])
+   @customers = @customer.following_customer
   end
 
   private

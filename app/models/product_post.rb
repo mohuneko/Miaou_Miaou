@@ -14,4 +14,18 @@ class ProductPost < ApplicationRecord
  	product_favorites.where(customer_id: customer.id).exists?
  end
 
+ def self.search(method,word)
+	 	   if method == "forward_match"
+	 	      @product_posts = ProductPost.where("product_name LIKE?","#{word}%")
+	 	   elsif method == "backward_match"
+              @product_posts = ProductPost.where("product_name LIKE?","%#{word}")
+           elsif method == "perfect_match"
+           	  @product_posts = ProductPost.where(product_name: "#{word}")
+           elsif method == "partial_match"
+           	  @product_posts = ProductPost.where("product_name LIKE?","%#{word}%")
+           else
+           	  @product_posts = ProductPost.all
+           end
+   end
+
 end

@@ -13,7 +13,7 @@ class Customers::CafePostsController < ApplicationController
  end
 
  def favorite
-  @cafe_posts = current_customer.favorite_posts.page(params[:page]).per(8)
+  @cafe_posts = current_customer.favorite_cafes.page(params[:page]).per(8)
  end
 
  def create
@@ -23,7 +23,7 @@ class Customers::CafePostsController < ApplicationController
  		  redirect_to customers_cafe_post_path(@cafe_post.id)
  	else
  		  render :new
- 		end
+ 	end
  end
 
  def new
@@ -52,9 +52,7 @@ class Customers::CafePostsController < ApplicationController
  private
 
  def cafe_post_params
-  params.require(:cafe_post).permit(:customer_id, :cafe_category_id, :price_rate, :favorite_rate, :total_rate, :cafe_name, :price, :description, :picture, :name)
+  params.require(:cafe_post).permit(:customer_id, :cafe_category_id, :price_rate, :free_rate, :total_rate, :shop_name, :price, :description, :picture, :name)
  end
-
 end
 
-end

@@ -13,7 +13,7 @@ class Customers::ProductPostsController < ApplicationController
  end
 
  def favorite
-  @product_posts = current_customer.favorite_posts.page(params[:page]).per(8)
+  @product_posts = current_customer.favorite_products.page(params[:page]).per(8)
  end
 
  def create
@@ -48,6 +48,14 @@ class Customers::ProductPostsController < ApplicationController
  		 render :edit
  	end
  end
+
+ def mypost
+  product_posts = current_customer.product_posts
+  cafe_posts = current_customer.cafe_posts
+  @mixed_posts = product_posts + cafe_posts
+  @mixed_posts.sort{|f,s| f.created_at <=> s.created_at}
+ end
+
 
  private
 

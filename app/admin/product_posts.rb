@@ -27,7 +27,7 @@ ActiveAdmin.register ProductPost do
     f.inputs do
       f.input :customer_id
       f.input :picture, :as => :file
-      f.input :product_category, as: :select, collection: ProductCategory.all, :member_label => :category
+      f.input :product_category_id, as: :select, collection: ProductCategory.all, :member_label => :category
       # f.input :category_id, as: :select, collection: Category.all.map { |m| [m.id.to_s + ' - ' + m.category, m.id] }
       f.input :product_name
       f.input :price

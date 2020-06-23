@@ -1,0 +1,100 @@
+<div class="container">
+	<div class="row">
+
+		<%= render 'layouts/sidebar' %>
+
+	  <div class="col-10">
+
+	  	<h3 class="title">猫カフェ編集<i class="fas fa-cat"></i></h3><br>
+
+	  	<div class="product_form">
+         <%= form_for @cafe_post, url: customers_cafe_post_path(@cafe_post) do |f| %>
+            <div class="product_picture">
+            	  <%= f.file_field :picture %> <!-- 猫グッズ画像投稿 -->
+            </div>
+
+             <div class="category"> <!-- カテゴリープルダウン -->
+             	  <%= f.label :カテゴリー %>
+             	  <%= f.collection_select :cafe_category_id, CafeCategory.all, :id, :category %>
+             </div>
+
+             <div class="product_label">
+	             	<%= f.label :店名 %> <!-- 商品名 -->
+	             	<%= f.text_field :shop_name, class:"field" %><br>
+	             	<%= f.label :価格 %><!-- 商品価格 -->
+	             	<%= f.text_field :price, class:"field" %>円/30分
+             </div>
+      
+             
+             	 <!-- 評価-->
+             	 <div class="form_group row" id="star5">
+	             	 	<%= f.label :price_rate,'価格', class:"col-md-4 col-form-label" %>
+	             	 	<%= f.hidden_field :price_rate, id: :review_star %>
+             	 </div>
+
+             	 <div class="form_group row" id="star6">
+             	 	  <%= f.label :free_rate, 'まったり', class:"col-md-4 col-form-label" %>
+	             	 	<%= f.hidden_field :free_rate, id: :review_star %>
+             	 </div>
+
+             	 <div class="form_group row" id="star7">
+             	 	  <%= f.label :total_rate, '総合', class:"col-md-4 col-form-label" %>
+	             	 	<%= f.hidden_field :total_rate, id: :review_star %>
+             	 </div>
+
+             	 	<script>
+             	 	$('#star5').raty({
+                  size    : 36,
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'cafe_post[price_rate]',
+                  half: true,
+             	 	 });
+
+             	 	$('#star6').raty({
+                  size    : 36,
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'cafe_post[free_rate]',
+                  half: true,
+             	 	 });
+
+             	 		$('#star7').raty({
+                  size    : 36,
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'cafe_post[total_rate]',
+                  half: true,
+             	 	 });
+
+             	  </script>
+
+                <div class="description_form">
+	                <%= f.label :説明 %><br>
+	                <%= f.text_area :description, class:"form-control", rows: "6", placeholder:"店内の雰囲気や感想を投稿しましょう！" %>
+	              </div>
+
+	              <!-- 投稿ボタン -->
+	              <div class="col-md-8">
+
+	              	 <%= f.submit "変更を保存する", class:"button" %>
+
+	              </div>
+
+
+	             </div>
+
+             	 </div>
+
+             </div>
+
+         <% end %>
+
+
+	  </div>
+
+	</div>
+</div>
