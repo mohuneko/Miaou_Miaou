@@ -1,3 +1,39 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.sub_message{
+ font-size:30px;
+}
+
+/*アバウトページの画像*/
+.about_image{
+ text-align:center;
+}
+
+/*アバウトページの文章*/
+.about_text{
+ text-align:left;
+}
+
+/*アバウトページの小タイトル*/
+.aboutabout{
+ border-bottom: solid 3px #D3878C;
+}
+
+
+.about_use{
+ text-align:right;
+ border-bottom: solid 3px #D3878C;
+}
+
+/*aboutのきなこの画像*/
+.kinako{
+ padding-left:200px;
+}
+
+/*説明*/
+.about_image2{
+ text-align:center;
+}

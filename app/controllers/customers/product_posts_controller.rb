@@ -3,6 +3,7 @@ class Customers::ProductPostsController < ApplicationController
  def index
   @product_post = ProductPost.new
   @product_posts = ProductPost.all.page(params[:page]).per(8) #paginate
+  @product_categories = ProductCategory.where(is_valid: true)
  end
 
  def show

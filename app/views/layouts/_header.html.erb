@@ -21,7 +21,7 @@
                 <li><%= link_to "logout", "/customers/sign_out", method: :delete, class:"fas fa-sign-out-alt" %></li>
             <% else %>
                 <li><%= link_to "", "/", class:"fas fa-home" %></li>
-                <li><%= link_to "About", "/home/about", class:"fas fa-cat" %></li>
+                <li><%= link_to "About", customers_about_path, class:"fas fa-cat" %></li>
                 <li><%= link_to "sign up", "/customers/sign_up", class:"fas fa-user-plus" %></li>
                 <li><%= link_to "login", "/customers/sign_in", class:"fas fa-sign-in-alt" %></li>
             <% end %>

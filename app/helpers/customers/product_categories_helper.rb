@@ -1,0 +1,2 @@
+module Customers::ProductCategoriesHelper
+end

@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
   get 'customers/search' => 'customers/searches#search' #search
 
+  get 'customers/product_categories' => 'customers/product_categories#index'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

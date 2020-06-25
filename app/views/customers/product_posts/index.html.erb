@@ -4,20 +4,16 @@
     <%= render 'layouts/sidebar' %>
 
     <div class="col-10">
-    	
-       
        <h3 class="title">猫グッズ投稿一覧<i class="fas fa-cat"></i></h3>
        <%= link_to "全#{ProductPost.all.count}件" %>
 
        <div class="row">
-         
          <% @product_posts.each do |product_post| %>
-        
+
        	<div class="col-3">
-  
        		<%= link_to customers_product_post_path(product_post.id) do %>
            <%= image_tag product_post.picture.to_s, size:"150x150" %>
-       		<!-- 商品画像 -->
+
            <div class="index_title">
        		 <p class="index_product_name">商品名：<%= product_post.product_name %></p> <!-- 商品名 -->
 
@@ -40,7 +36,6 @@
                });
        		   </script>
 
-
               <!-- いいね数とコメント数 -->
               <div class="index_favorite">
 
@@ -61,20 +56,14 @@
             </div>
               <% end %>
           <% end %>
-
              </div>
-
           　　　<!-- いいね数とコメント -->
-
           </div>
        	 <% end %>
-
           <div class="page">
        	   <%= paginate @product_posts %>
           </div>
-
       </div>
     </div>
-
   </div>
 </div>
