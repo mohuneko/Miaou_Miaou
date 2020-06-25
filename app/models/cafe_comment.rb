@@ -3,6 +3,7 @@ class CafeComment < ApplicationRecord
  belongs_to :cafe_post
 
 validates :comment, presence: true
+validates :total_rate, presence: true
 
  #一つの投稿に対して一人一つまでの投稿ができるメソッド
  def comment_already_posted?

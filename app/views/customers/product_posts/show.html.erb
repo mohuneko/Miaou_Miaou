@@ -34,8 +34,6 @@
 
 
         <!-- いいね機能ここまで -->
-
-
         <!-- 評価 -->
 
           	 <p class="show_title">　　　価格：</p>
@@ -53,7 +51,6 @@
 
              <br><p class="show_title">説明：</p>
              <%= @product_post.description %><br>
-
 
 　　　　　　<!-- 編集・削除ボタン -->
 
@@ -78,7 +75,6 @@
         </div>
 
         <div class="show_button">
-
                 <% unless @customer == current_customer %>
           <% if current_customer.following?(@customer) %>
            <p><%= link_to 'フォロー外す', unfollow_path(@customer.id), method: :DELETE, class: "button red" %>
@@ -98,8 +94,6 @@
         <br><h3 class="comment_customer">コメント</h3>
 
         <div class="comment_customer">
-
-
             <% @comments.each do |product_comment| %>
              <div class="comment">
               <div class="comment-body">
@@ -134,18 +128,12 @@
                    <% end %>
                 </div>
               </div>
-
                <%=  image_tag("line.jpg", size:'530x65') %>
             </div>
             <% end %>
-
-
         </div>
-
         <%= paginate @comments %>
-
         <!-- コメント表示ここまで -->
-
         <!-- コメントフォーム -->
         <%= form_for [@product_post, @product_comment], url:customers_product_post_product_comments_path(@product_post) do |f| %>
         <div class="comment_form">
@@ -162,10 +150,7 @@
         <% end %>
         </div><br>
          <!-- コメントフォームここまで -->
-
-
         <!-- レビューのscript -->
-
         	 <script>
            $('#star1-price_rate-<%= @product_post.id %>').raty({
            	size    : 36,
@@ -208,16 +193,9 @@
             scoreName: 'product_comment[total_rate]',
             half: true,
            });
-
-
         	 </script>
-
            <!-- レビューのscriptここまで -->
-
-
         </div>
-
-
 	  </div>
 	</div>
 </div>

@@ -14,18 +14,11 @@ validates :description, presence: true
  	cafe_favorites.where(customer_id: customer.id).exists?
  end
 
- def self.search(method,word)
-	 	   if method == "forward_match"
-	 	      @cafe_posts = CafePost.where("shop_name LIKE?","#{word}%")
-	 	   elsif method == "backward_match"
-              @cafe_posts = CafePost.where("shop_name LIKE?","%#{word}")
-           elsif method == "perfect_match"
-           	  @cafe_posts = CafePost.where(shop_name: "#{word}")
-           elsif method == "partial_match"
-           	  @cafe_posts = CafePost.where("shop_name LIKE?","%#{word}%")
-           else
-           	  @cafe_posts = CafePost.all
-           end
+ def CafePost.search(search, product_post_or_cafe_post)
+  if product_post_or_cafe_post == "2"
+     CafePost.where(['shop_name LIKE?', "%#{search}%"])
+  else
+     CafePost.all
    end
-
+ end
 end

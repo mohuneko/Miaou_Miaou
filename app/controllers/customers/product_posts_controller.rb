@@ -57,6 +57,23 @@ class Customers::ProductPostsController < ApplicationController
   @mixed_posts.sort{|f,s| f.created_at <=> s.created_at}
  end
 
+ def posts
+  @customer = Customer.find(params[:customer_id])
+  product_posts = @customer.product_posts
+  cafe_posts = @customer.cafe_posts
+  @mixed_posts = product_posts + cafe_posts
+  @mixed_posts.sort{|f,s| f.created_at <=> s.created_at}
+ end
+
+  def search
+    @product_post_or_cafe_post = params[:option]
+    if @product_post_or_cafe_post == "1"
+      @product_posts = ProductPost.search(params[:search], @product_post_or_cafe_post)
+    else
+      @cafe_posts = CafePost.search(params[:search], @product_post_or_cafe_post)
+    end
+  end
+
 
  private
 

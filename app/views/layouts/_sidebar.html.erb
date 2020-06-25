@@ -1,23 +1,30 @@
 <div class="col-2">
  <div class="sidebar">
    <h2>Category</h2>
-   　<p><i class="fas fa-paw"></i></p>
+    <p><i class="fas fa-paw"></i></p>
 
-   　<% @mixed_categories.each do |category| %>
+    <% @mixed_categories.each do |category| %>
     <div class="category_name"><a href="<%= customers_product_categories_path(id: category.id, type: category.class) %>"><%= category.category %></a></div>
-   　<% end %>
+    <% end %>
+     <br><p><i class="fas fa-paw"></i></p>
+      <%= form_tag(customers_search_path, :method => 'get') do %>
+       <%= select_tag(:option, options_for_select([["猫グッズ","1"],["猫カフェ","2"]])) %>
+       <%= text_field_tag :search %>
+       <%= submit_tag 'Search',class:"button" %><br>
+      <% end %>
+     <br><p><i class="fas fa-paw"></i></p>
 
-　　　<p><%= link_to "お問い合わせ", customers_contact_path, class:"fa fa-envelope-o"%></p>
-   　　　<div class="menu">
-    　　　　<label class="side" for="menu_bar01">猫カフェ</label>
-    　　　　<input type="checkbox" id="menu_bar01" class="accordion"/>
-      　　<ul id="links01">
+     <p><%= link_to "お問い合わせ", customers_contact_path %></p>
+       <div class="menu">
+          <label class="side" for="menu_bar01">猫カフェ</label>
+           <input type="checkbox" id="menu_bar01" class="accordion"/>
+         <ul id="links01">
           <li><a href="/customers/cafe_posts/"><i class="far fa-comments"></i>投稿を見る</a></li>
           <li><a href="/customers/cafe_posts/new"><i class="fas fa-pencil-alt"></i>投稿する</a></li>
           <li><a href="/customers/cafe_posts/favorite"><i class="fas fa-heart"></i>お気に入り</a></li>
          </ul>
           <label class="side" for="menu_bar02">猫グッズ</label>
-          <input type="checkbox" id="menu_bar02" class="accordion" />
+          <input type="checkbox" id="menu_bar02" class="accordion"/>
          <ul id="links02">
           <li><a href="/customers/product_posts/"><i class="far fa-comments"></i>投稿を見る</a></li>
           <li><a href="/customers/product_posts/new"><i class="fas fa-pencil-alt"></i>投稿する</a></li>

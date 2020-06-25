@@ -18,11 +18,13 @@ private
 
   def set_product(id)
     @product_category = ProductCategory.find(id)
+    @mixed_category = @product_category
     @mixed_posts = ProductPost.where(product_category_id: id)
   end
 
   def set_cafe(id)
     @cafe_category = CafeCategory.find(id)
+    @mixed_category = @cafe_category
     @mixed_posts = CafePost.where(cafe_category_id: id)
   end
 

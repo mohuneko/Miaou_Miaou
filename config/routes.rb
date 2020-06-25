@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   get 'customers/cafe_posts/favorite' => 'customers/cafe_posts#favorite' #猫カフェ投稿いいね一覧
   get 'customers/product_posts/favorite' => 'customers/product_posts#favorite' #猫グッズ投稿いいね
 
-  get 'customers/product_posts/mypost' => 'customers/product_posts#mypost' #猫グッズ自分の投稿
+  get 'customers/product_posts/mypost' => 'customers/product_posts#mypost' #自分の投稿
+  get 'customers/product_posts/posts' => 'customers/product_posts#posts' #@customerの投稿
 
   post 'follow/:id' => 'customers/relationships#follow', as: 'follow' #フォローする
   delete 'unfollow/:id' => 'customers/relationships#unfollow', as: 'unfollow' #フォローを外す
@@ -35,9 +36,10 @@ Rails.application.routes.draw do
   get 'customers/:customer_id/followers' => 'customers/relationships#followers', as: 'followers'
   get 'customers/:customer_id/follows' => 'customers/relationships#follows', as: 'follows'
 
-  get 'customers/search' => 'customers/searches#search' #search
+  get 'customers/search' => 'customers/product_posts#search' #postのsearch
 
-  get 'customers/product_categories' => 'customers/product_categories#index'
+  get 'customers/product_categories' => 'customers/product_categories#index' #カテゴリー一覧
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

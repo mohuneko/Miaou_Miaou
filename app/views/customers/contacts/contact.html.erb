@@ -1,8 +1,6 @@
 <div class="container">
 	<div class="row">
-
 		<%= render 'layouts/sidebar' %>
-
 		    <div class="col-10 contact_page">
 
 					<%= form_for(@contact, url: { action: :confirm }) do |f| %>
@@ -23,9 +21,7 @@
                     	<strong>お問い合わせ内容</strong>
                     	<p><%= f.text_area :contact_content, autofocus: true, class: "field" %></p>
                     </div>
-
 										  <%= f.submit "確認画面へ", class:"button" %>
-
 						　</div>
 					<% end %>
 		    </div>

@@ -4,17 +4,16 @@
     <%= render 'layouts/sidebar' %>
 
     <div class="col-10">
-      
-       
+
        <h3 class="title">猫カフェ投稿一覧<i class="fas fa-cat"></i></h3>
        <%= link_to "全#{CafePost.all.count}件" %>
 
        <div class="row">
-         
+
          <% @cafe_posts.each do |cafe_post| %>
-        
+
         <div class="col-3">
-  
+
           <%= link_to customers_cafe_post_path(cafe_post.id) do %>
            <%= image_tag cafe_post.picture.to_s, size:"150x150" %>
           <!-- 商品画像 -->

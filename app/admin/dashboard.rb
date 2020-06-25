@@ -28,5 +28,15 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
     # end
+
+     #section "Recent ProductPost" do
+        #table_for ProductPosts.order("released_at desc").limit(8) do
+            #column :id
+            #column :product_name
+            #column :product_category
+            #column :is_valid
+        #end
+        #strong {link_to "View All ProductPosts", admin_product_posts_path }
+   #end
   end # content
 end
