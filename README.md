@@ -1,6 +1,6 @@
 # Miaou! Miaou!
 
-![cock](https://github.com/mohuneko/Miaou_Miaou/blob/master/miaoumiaouuuuuu.jpg)
+![cock](https://github.com/mohuneko/Miaou_Miaou/blob/master/miaoumiaou.jpg)
 
 ## サイト概要
 猫カフェ・猫用グッズ・猫ブランドサイト等猫情報のトータルSNSサイト。
