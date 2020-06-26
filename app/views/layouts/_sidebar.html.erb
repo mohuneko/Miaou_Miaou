@@ -7,14 +7,14 @@
     <div class="category_name"><a href="<%= customers_product_categories_path(id: category.id, type: category.class) %>"><%= category.category %></a></div>
     <% end %>
      <br><p><i class="fas fa-paw"></i></p>
-      <%= form_tag(customers_search_path, :method => 'get') do %>
-       <%= select_tag(:option, options_for_select([["猫グッズ","1"],["猫カフェ","2"]])) %>
-       <%= text_field_tag :search %>
-       <%= submit_tag 'Search',class:"button" %><br>
-      <% end %>
-     <br><p><i class="fas fa-paw"></i></p>
+       <%= form_tag(customers_search_path, :method => 'get') do %>
+        <%= select_tag(:option, options_for_select([["猫グッズ","1"],["猫カフェ","2"]])) %>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'Search',class:"button" %><br>
+       <% end %>
+         <br><p><i class="fas fa-paw"></i></p>
+         <p><%= link_to "お問い合わせ", customers_contact_path %></p>
 
-     <p><%= link_to "お問い合わせ", customers_contact_path %></p>
        <div class="menu">
           <label class="side" for="menu_bar01">猫カフェ</label>
            <input type="checkbox" id="menu_bar01" class="accordion"/>

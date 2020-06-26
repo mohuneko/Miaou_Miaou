@@ -468,3 +468,18 @@ input#search{
   border: 1px solid #C3CAD2;
   border-radius: 4px;
 }
+
+/*ページスクロール*/
+#page_top {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+}
+#page_top a {
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+#page_top a:hover {
+    text-decoration: none;
+}

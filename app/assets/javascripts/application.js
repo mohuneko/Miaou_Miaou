@@ -39,5 +39,23 @@ $(document).ready(function () {
       // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
       hidePrevious : false
   });
-});
 
+
+$(function(){
+  var pagetop = $('#page_top');
+  // ボタン非表示
+  pagetop.hide();
+  // 100px スクロールしたらボタン表示
+  $(window).scroll(function () {
+     if ($(this).scrollTop() > 100) {
+          pagetop.fadeIn();
+     } else {
+          pagetop.fadeOut();
+     }
+  });
+  pagetop.click(function () {
+     $('body, html').animate({ scrollTop: 0 }, 500);
+     return false;
+  });
+});
+});
