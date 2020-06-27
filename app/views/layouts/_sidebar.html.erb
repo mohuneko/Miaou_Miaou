@@ -8,8 +8,8 @@
     <% end %>
       <%= image_tag("linecat2.jpg", size:'150x80') %>
        <%= form_tag(customers_search_path, :method => 'get') do %>
-        <%= select_tag(:option, options_for_select([["猫グッズ","1"],["猫カフェ","2"]])) %>
-        <%= text_field_tag :search %>
+        <%= select_tag(:option, options_for_select([["猫グッズ","1"],["猫カフェ","2"]]),id:"sidebar_option") %>
+        <%= text_field_tag :search,"",id:'sidebar_search' %>
         <%= submit_tag 'Search',class:"button" %><br>
        <% end %>
          <br><p><i class="fas fa-paw"></i></p>

@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function(){
   $("#theTarget").skippr({
       // スライドショーの変化 ("fade" or "slide")
       transition : 'slide',
@@ -40,8 +40,6 @@ $(document).ready(function () {
       hidePrevious : false
   });
 
-
-$(function(){
   var pagetop = $('#page_top');
   // ボタン非表示
   pagetop.hide();
@@ -57,5 +55,4 @@ $(function(){
      $('body, html').animate({ scrollTop: 0 }, 500);
      return false;
   });
-});
 });
