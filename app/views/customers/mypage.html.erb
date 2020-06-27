@@ -8,7 +8,7 @@
 					    <p class="mypage_image"><%= image_tag @customer.profile_image.to_s, size:"260x260" %></p>
 		              <div class="mypage_follow">
 		                <p><i class="fas fa-flag"></i>
-		                	フォロー数: <%= link_to "#{@customer.follower.count}", follows_path(@customer.id) %> 
+		                	フォロー数: <%= link_to "#{@customer.follower.count}", follows_path(@customer.id) %>
 		                	<i class="fa fa-heart"></i>
 		                	フォロワー数: <%= link_to "#{@customer.followed.count}", followers_path(@customer.id) %></p>
 		              </div>
@@ -34,7 +34,8 @@
      	<%= link_to image_tag("favorite2.jpg", size:'400x80'), customers_product_posts_favorite_path %>
      	<%= link_to image_tag("favorite3.jpg", size:'400x80'), customers_cafe_posts_favorite_path %>
      	<%= link_to image_tag("myposts.jpg", size:'250x80'), customers_product_posts_mypost_path %><br>
-     	<%= link_to image_tag("contact.jpg", size:'250x80'), customers_contact_path %>
+     	<%= link_to image_tag("contact.jpg", size:'250x80'), customers_contact_path %><br>
+     	<%= image_tag("mypage2.jpg", size:'300x160') %>
      </div>
 	 </div>
 	</div>

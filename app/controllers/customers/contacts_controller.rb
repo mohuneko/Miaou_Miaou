@@ -7,8 +7,6 @@ class Customers::ContactsController < ApplicationController
  end
 
  def confirm #入力値のチェック
- #@contact = Contact.new(contact_params)
- #@contact.customer_id = current_customer.id
  @contact = current_customer.contact.build(contact_params)
 
  if @contact.valid?
