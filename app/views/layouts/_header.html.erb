@@ -13,17 +13,15 @@
             <!-- ログインしている・しないない時のif文を加える -->
           <ul class="flex">
             <% if customer_signed_in? %>
-                <li><%= link_to "", "/", class:"fas fa-home" %></li>
-                <li><%= link_to "About", customers_about_path, class:"fas fa-cat" %></li>
-                <li><%= link_to "マイページ", customers_mypage_path, class:"fas fa-paw" %></li> 
-                <li><%= link_to "猫グッズ", customers_product_posts_path, class:"fas fa-paw" %></li>
-                <li><%= link_to "猫カフェ", customers_cafe_posts_path, class:"fas fa-paw" %></li> 
-                <li><%= link_to "logout", "/customers/sign_out", method: :delete, class:"fas fa-sign-out-alt" %></li>
+                <li><%= link_to image_tag("headerabout.png", size:'100x80'), customers_about_path %></li>
+                <li><%= link_to image_tag("headermy.png", size:'100x80'), customers_mypage_path %></li>
+                <li><%= link_to image_tag("headergoods.png", size:'100x80'), customers_product_posts_path %></li>
+                <li><%= link_to image_tag("headercafes.png", size:'100x80'), customers_cafe_posts_path %></li>
+                <li><%= link_to image_tag("headerlogout.png", size:'100x80'), destroy_customer_session_path, method: :delete %></li>
             <% else %>
-                <li><%= link_to "", "/", class:"fas fa-home" %></li>
-                <li><%= link_to "About", customers_about_path, class:"fas fa-cat" %></li>
-                <li><%= link_to "sign up", "/customers/sign_up", class:"fas fa-user-plus" %></li>
-                <li><%= link_to "login", "/customers/sign_in", class:"fas fa-sign-in-alt" %></li>
+                <li><%= link_to image_tag("headerabout.png", size:'100x80'), customers_about_path %></li>
+                <li><%= link_to image_tag("headersignup.png", size:'100x80'), "/customers/sign_up" %></li>
+                <li><%= link_to image_tag("headerlogin.png", size:'100x80'), "/customers/sign_in" %></li>
             <% end %>
 
 

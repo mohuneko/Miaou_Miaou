@@ -1,5 +1,7 @@
 class Customers::ProductPostsController < ApplicationController
 
+  before_action :authenticate_customer! #ログインしているユーザーのみ入れる
+
  def index
   @product_post = ProductPost.new
   @product_posts = ProductPost.all.page(params[:page]).per(8) #paginate

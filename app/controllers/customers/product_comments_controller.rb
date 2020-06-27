@@ -1,4 +1,5 @@
 class Customers::ProductCommentsController < ApplicationController
+
  before_action :authenticate_customer! #ログインしエチルユーザーのみ
 
  def create
@@ -6,7 +7,6 @@ class Customers::ProductCommentsController < ApplicationController
   @product_comment = current_customer.product_comments.new(product_comment_params)
   @product_comment.product_post_id = @product_post.id
   if !@product_comment.comment_already_posted? && @product_comment.save
-  	flash[:notice] = "success!"
   	redirect_to request.referer #成功
   else
     @customer = @product_post.customer

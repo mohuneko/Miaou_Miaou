@@ -1,4 +1,4 @@
-ActiveAdmin.register ProductCategory do
+ActiveAdmin.register ProductCategory,as: "Admin ProductCategory" do
 
 
   # See permitted parameters documentation:

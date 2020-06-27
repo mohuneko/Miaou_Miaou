@@ -1,5 +1,7 @@
 class Customers::ProductFavoritesController < ApplicationController
 
+　before_action :authenticate_customer! #ログインしエチルユーザーのみ
+
  def create
   @product_post = ProductPost.find(params[:product_post_id])
   favorite = current_customer.product_favorites.new(product_post_id: @product_post.id)

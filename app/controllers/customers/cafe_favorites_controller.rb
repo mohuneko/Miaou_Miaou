@@ -1,5 +1,7 @@
 class Customers::CafeFavoritesController < ApplicationController
 
+　before_action :authenticate_customer! #ログインしエチルユーザーのみ
+
   def create
   @cafe_post = CafePost.find(params[:cafe_post_id])
   favorite = current_customer.cafe_favorites.new(cafe_post_id: @cafe_post.id)

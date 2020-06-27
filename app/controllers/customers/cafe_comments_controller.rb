@@ -1,6 +1,6 @@
 class Customers::CafeCommentsController < ApplicationController
 
-  before_action :authenticate_customer! #ログインしエチルユーザーのみ
+  before_action :authenticate_customer! #ログインしているユーザーのみ入れる
 
  def create
   @cafe_post = CafePost.find(params[:cafe_post_id])

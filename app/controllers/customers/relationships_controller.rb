@@ -1,5 +1,7 @@
 class Customers::RelationshipsController < ApplicationController
 
+  before_action :authenticate_customer! #ログインしエチルユーザーのみ
+
 	def follow
 	 current_customer.follow(params[:id])
 	 redirect_back(fallback_location: root_path)

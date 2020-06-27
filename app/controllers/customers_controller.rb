@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+ before_action :authenticate_customer! #ログインしているユーザーのみ入れる
 
  def mypage
   @customer = current_customer

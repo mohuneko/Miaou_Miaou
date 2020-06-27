@@ -1,5 +1,7 @@
 class Customers::CafePostsController < ApplicationController
 
+  before_action :authenticate_customer! #ログインしているユーザーのみ入れる
+
  def index
   @cafe_post = CafePost.new
   @cafe_posts = CafePost.all.page(params[:page]).per(8) #paginate
