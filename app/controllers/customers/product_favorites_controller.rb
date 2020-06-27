@@ -1,6 +1,6 @@
 class Customers::ProductFavoritesController < ApplicationController
 
-　before_action :authenticate_customer! #ログインしエチルユーザーのみ
+  before_action :authenticate_customer! #ログインしエチルユーザーのみ
 
  def create
   @product_post = ProductPost.find(params[:product_post_id])
