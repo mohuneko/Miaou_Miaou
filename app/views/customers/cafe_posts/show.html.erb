@@ -138,14 +138,11 @@
                <%=  image_tag("line.jpg", size:'530x65') %>
             </div>
             <% end %>
-
-
         </div>
 
         <%= paginate @comments %>
 
         <!-- コメント表示ここまで -->
-
         <!-- コメントフォーム -->
         <%= form_for [@cafe_post, @cafe_comment], url:customers_cafe_post_cafe_comments_path(@cafe_post) do |f| %>
         <div class="comment_form">
@@ -162,8 +159,6 @@
         <% end %>
         </div><br>
          <!-- コメントフォームここまで -->
-
-
         <!-- レビューのscript -->
 
         	 <script>
@@ -209,15 +204,9 @@
             half: true,
            });
 
-
         	 </script>
-
            <!-- レビューのscriptここまで -->
-
-
         </div>
-
-
 	  </div>
 	</div>
 </div>

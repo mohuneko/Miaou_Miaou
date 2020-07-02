@@ -15,11 +15,7 @@
 
              <div class="category"> <!-- カテゴリープルダウン -->
              	  <%= f.label :カテゴリー %>
-                <%#= f.collection_select :category_id, Category.all, :id, :category %>
                 <%= f.collection_select :cafe_category_id, CafeCategory.all, :id, :category %>
-                <%#= select :category_id, :name, {"商品"=>"0","食べ物"=>"1","おもちゃ"=>"2","その他"=>"3"}, include_black: true %>
-                <%#= f.select :category_id, [['商品', 0],['食べ物', 1],['おもちゃ',2],['その他',3]], { include_blank: false, selected: 0 } %>
-
              </div>
 
              <div class="product_label">
@@ -87,16 +83,11 @@
 
 	              </div>
 
-
 	             </div>
-
              	 </div>
-
              </div>
-
          <% end %>
        </div>
     </div>
-
   </div>
 </div>

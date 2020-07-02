@@ -3,155 +3,155 @@
 
 		<%= render 'layouts/sidebar' %>
 
-	  <div class="col-10">
+   <div class="col-10">
 
-	  	<h3 class="title">猫グッズ詳細<i class="fas fa-cat"></i></h3>
-         <%= link_to @product_post_path do %>
-         <% end %>
+    <h3 class="title">猫グッズ詳細<i class="fas fa-cat"></i></h3>
+    <%= link_to @product_post_path do %>
+    <% end %>
 
-        <p class="product_image">
-        	 <%= image_tag @product_post.picture.to_s, size:"330x330" %>
-        </p>
+    <p class="product_image">
+      <%= image_tag @product_post.picture.to_s, size:"330x330" %>
+    </p>
 
-        <div class="product_form">
+    <div class="product_form">
 
-          <!-- いいね機能 -->
+      <!-- いいね機能 -->
 
-         <% if @product_post.favorited_by?(current_customer) %>
-              <%= link_to customers_product_post_product_favorites_path(@product_post), method: :delete do %>
-              <p class="good1">　<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-              <%= @product_post.product_favorites.count %></p>
-              <% end %>
-          <% else %>
-              <%= link_to customers_product_post_product_favorites_path(@product_post), method: :post do %>
-              <p class="good1">　<i class="fa fa-heart-o" aria-hidden="true"></i>
-              <%= @product_post.product_favorites.count %></p>
-              <% end %>
-          <% end %>
-
-	         <p class="product_name good">商品名：<%= @product_post.product_name %></p>
-	         <p class="product_price good">　価格：<%= @product_post.price %>円</p><br>
-
-
-        <!-- いいね機能ここまで -->
-        <!-- 評価 -->
-
-          	 <p class="show_title">　　　価格：</p>
-          	 <div id="star1-price_rate-<%= @product_post.id %>"></div><br>
-
-             <p class="show_title">お気に入り：</p>
-             <div id="star2-favorite_rate-<%= @product_post.id %>"></div><br>
-
-             <p class="show_title">　　　総合：</p>
-             <div id="star3-total_rate-<%= @product_post.id %>"></div><br>
-
-          </div>
-
-          <div class="product_description">
-
-             <br><p class="show_title">説明：</p>
-             <%= @product_post.description %><br>
-
-　　　　　　<!-- 編集・削除ボタン -->
-
-        <% if @product_post.customer_id == current_customer.id %>
-           <br><p><%= link_to "編集する", edit_customers_product_post_path(@product_post), class:"button" %>
-           <%= link_to "削除する", @product_post_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "button destroy_product_post_#{@product_post.id}" %></p>
+      <% if @product_post.favorited_by?(current_customer) %>
+      <%= link_to customers_product_post_product_favorites_path(@product_post), method: :delete do %>
+      <p class="good1">　<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+        <%= @product_post.product_favorites.count %></p>
         <% end %>
-
-        <!-- 編集・削除ボタンここまで -->
-
-        <!-- 投稿者の情報 -->
-
-        <div class="post_customer">
-          <p class="post_customer_name_image">
-          投稿者：<%= @product_post.customer.name %>
-          <%= image_tag @product_post.customer.profile_image.to_s, size:"100x100" %>
-          </p>
-
-        <div class="post_customer_name_image follow">
-          <p><i class="fas fa-flag"></i><%= "フォロー数: #{@customer.follower.count}" %> <i class="fa fa-heart"></i><%= "フォロワー数: #{@customer.followed.count}" %></p>
-          <td>
-        </div>
-
-        <div class="show_button">
-                <% unless @customer == current_customer %>
-          <% if current_customer.following?(@customer) %>
-           <p><%= link_to 'フォロー外す', unfollow_path(@customer.id), method: :DELETE, class: "button red" %>
-          <% else %>
-            <%= link_to 'フォローする', follow_path(@customer.id), method: :POST, class: "button" %></p>
+        <% else %>
+        <%= link_to customers_product_post_product_favorites_path(@product_post), method: :post do %>
+        <p class="good1">　<i class="fa fa-heart-o" aria-hidden="true"></i>
+          <%= @product_post.product_favorites.count %></p>
           <% end %>
           <% end %>
 
-        </div>
+          <p class="product_name good">商品名：<%= @product_post.product_name %></p>
+          <p class="product_price good">　価格：<%= @product_post.price %>円</p><br>
+
+
+          <!-- いいね機能ここまで -->
+          <!-- 評価 -->
+
+          <p class="show_title">　　　価格：</p>
+          <div id="star1-price_rate-<%= @product_post.id %>"></div><br>
+
+          <p class="show_title">お気に入り：</p>
+          <div id="star2-favorite_rate-<%= @product_post.id %>"></div><br>
+
+          <p class="show_title">　　　総合：</p>
+          <div id="star3-total_rate-<%= @product_post.id %>"></div><br>
 
         </div>
 
-        <!-- 投稿者の情報ここまで -->
+        <div class="product_description">
 
-        <!-- コメント表示 -->
+         <br><p class="show_title">説明：</p>
+         <%= @product_post.description %><br>
 
-        <br><h3 class="comment_customer">コメント</h3>
+         　　　　　　<!-- 編集・削除ボタン -->
 
-        <div class="comment_customer">
-            <% @comments.each do |product_comment| %>
-             <div class="comment">
-              <div class="comment-body">
+         <% if @product_post.customer_id == current_customer.id %>
+         <br><p><%= link_to "編集する", edit_customers_product_post_path(@product_post), class:"button" %>
+           <%= link_to "削除する", @product_post_path, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "button destroy_product_post_#{@product_post.id}" %></p>
+           <% end %>
 
-                <div class="profile_image">
-                 <%= image_tag product_comment.customer.profile_image.to_s, size:"60x60" %>
-                 <%= product_comment.customer.name %>
-                </div>
+           <!-- 編集・削除ボタンここまで -->
 
-                <div class="comment-text">
+           <!-- 投稿者の情報 -->
 
-                  <p class="show_title">総合：</p>
-                  <div id="star4-total_rate-<%= product_comment.id %>"></div><br> <!-- コメント星レビュー -->
+           <div class="post_customer">
+            <p class="post_customer_name_image">
+              投稿者：<%= @product_post.customer.name %>
+              <%= image_tag @product_post.customer.profile_image.to_s, size:"100x100" %>
+            </p>
 
-                  <script>
-                    $('#star4-total_rate-<%= product_comment.id %>').raty({
-                      size    : 36,
-                      starOff: '<%= asset_path('star-off.png') %>',
-                      starOn : '<%= asset_path('star-on.png') %>',
-                      starHalf: '<%= asset_path('star-half.png') %>',
-                      scoreName: 'product_comment[total_rate]',
-                      readOnly: true,
-                      half: true,
-                      score: <%= product_comment.total_rate %>,
-                    });
-                  </script>
-
-                  <%= product_comment.comment %>
-
-                   <% if product_comment.customer == current_customer %>
-                    <%= link_to '', customers_product_post_product_comment_path(@product_post,product_comment), method: :delete, class:"fas fa-trash fa trash_black" %>
-                   <% end %>
-                </div>
+            <div class="post_customer_name_image follow">
+              <p><i class="fas fa-flag"></i><%= "フォロー数: #{@customer.follower.count}" %> <i class="fa fa-heart"></i><%= "フォロワー数: #{@customer.followed.count}" %></p>
+              <td>
               </div>
-               <%=  image_tag("line.jpg", size:'530x65') %>
-            </div>
-            <% end %>
-        </div>
-        <%= paginate @comments %>
-        <!-- コメント表示ここまで -->
-        <!-- コメントフォーム -->
-        <%= form_for [@product_post, @product_comment], url:customers_product_post_product_comments_path(@product_post) do |f| %>
-        <div class="comment_form">
-         <div class="col-6">
 
-            <div class="form_group row" id="star4">
-              <%= f.label :total_rate, '総合', class:"col-md-4 col-form-label" %>
-              <%= f.hidden_field :total_rate, id: :review_star %>
+              <div class="show_button">
+                <% unless @customer == current_customer %>
+                <% if current_customer.following?(@customer) %>
+                <p><%= link_to 'フォロー外す', unfollow_path(@customer.id), method: :DELETE, class: "button red" %>
+                  <% else %>
+                  <%= link_to 'フォローする', follow_path(@customer.id), method: :POST, class: "button" %></p>
+                  <% end %>
+                  <% end %>
+
+                </div>
+
+              </div>
+
+              <!-- 投稿者の情報ここまで -->
+
+              <!-- コメント表示 -->
+
+              <br><h3 class="comment_customer">コメント</h3>
+
+              <div class="comment_customer">
+                <% @comments.each do |product_comment| %>
+                <div class="comment">
+                  <div class="comment-body">
+
+                    <div class="profile_image">
+                     <%= image_tag product_comment.customer.profile_image.to_s, size:"60x60" %>
+                     <%= product_comment.customer.name %>
+                   </div>
+
+                   <div class="comment-text">
+
+                    <p class="show_title">総合：</p>
+                    <div id="star4-total_rate-<%= product_comment.id %>"></div><br> <!-- コメント星レビュー -->
+
+                    <script>
+                      $('#star4-total_rate-<%= product_comment.id %>').raty({
+                        size    : 36,
+                        starOff: '<%= asset_path('star-off.png') %>',
+                        starOn : '<%= asset_path('star-on.png') %>',
+                        starHalf: '<%= asset_path('star-half.png') %>',
+                        scoreName: 'product_comment[total_rate]',
+                        readOnly: true,
+                        half: true,
+                        score: <%= product_comment.total_rate %>,
+                      });
+                    </script>
+
+                    <%= product_comment.comment %>
+
+                    <% if product_comment.customer == current_customer %>
+                    <%= link_to '', customers_product_post_product_comment_path(@product_post,product_comment), method: :delete, class:"fas fa-trash fa trash_black" %>
+                    <% end %>
+                  </div>
+                </div>
+                <%=  image_tag("line.jpg", size:'530x65') %>
+              </div>
+              <% end %>
             </div>
+            <%= paginate @comments %>
+            <!-- コメント表示ここまで -->
+            <!-- コメントフォーム -->
+            <%= form_for [@product_post, @product_comment], url:customers_product_post_product_comments_path(@product_post) do |f| %>
+            <div class="comment_form">
+             <div class="col-6">
+
+              <div class="form_group row" id="star4">
+                <%= f.label :total_rate, '総合', class:"col-md-4 col-form-label" %>
+                <%= f.hidden_field :total_rate, id: :review_star %>
+              </div>
 
               <%= f.text_area :comment,row:'3', class: "form-control",placeholder:"コメントここに" %>
-         </div>
-              <%= f.submit "投稿する", class:"button" %>
-        <% end %>
-        </div><br>
-         <!-- コメントフォームここまで -->
-        <!-- レビューのscript -->
-        	 <script>
+            </div>
+            <%= f.submit "投稿する", class:"button" %>
+            <% end %>
+          </div><br>
+          <!-- コメントフォームここまで -->
+          <!-- レビューのscript -->
+          <script>
            $('#star1-price_rate-<%= @product_post.id %>').raty({
            	size    : 36,
             starOff: '<%= asset_path('star-off.png') %>',
@@ -161,7 +161,7 @@
             readOnly: true,
             half: true,
             score: <%= @product_post.price_rate %>,
-           });
+          });
 
            $('#star2-favorite_rate-<%= @product_post.id %>').raty({
            	size    : 36,
@@ -172,7 +172,7 @@
             readOnly: true,
             half: true,
             score: <%= @product_post.favorite_rate %>,
-           });
+          });
 
            $('#star3-total_rate-<%= @product_post.id %>').raty({
            	size    : 36,
@@ -183,19 +183,19 @@
             readOnly: true,
             half: true,
             score: <%= @product_post.total_rate %>,
-           });
+          });
 
-            $('#star4').raty({
+           $('#star4').raty({
             size    : 36,
             starOff: '<%= asset_path('star-off.png') %>',
             starOn : '<%= asset_path('star-on.png') %>',
             starHalf: '<%= asset_path('star-half.png') %>',
             scoreName: 'product_comment[total_rate]',
             half: true,
-           });
-        	 </script>
-           <!-- レビューのscriptここまで -->
-        </div>
-	  </div>
-	</div>
+          });
+        </script>
+        <!-- レビューのscriptここまで -->
+      </div>
+    </div>
+  </div>
 </div>

@@ -11,9 +11,7 @@
        <%#= link_to "全#{@product_posts.count}件" %>
 
        <div class="row">
-
        	 <p>検索</p>
-
          <% form_tag(search_path, :method => 'get') do %>
             <%= text_field_tag :search %>
             <%= submit_tag 'Search', :name => nil %>
@@ -22,7 +20,6 @@
          <% @product_posts.each do |product_post| %>
 
 			       	<div class="col-3">
-			  
 			       		<%= link_to customers_product_post_path(product_post.id) do %>
 			           <%= image_tag product_post.picture.to_s, size:"150x150" %>
 			       		<!-- 商品画像 -->
@@ -47,8 +44,6 @@
 					            score: <%= product_post.total_rate %>,
 			               });
 			       		   </script>
-
-
 			              <!-- いいね数とコメント数 -->
 			              <div class="index_favorite">
 
@@ -71,15 +66,11 @@
 			          <% end %>
 
 			             </div>
-
 			          　　　<!-- いいね数とコメント -->
-
 			          </div>
 			    <% end %>
-
        	</div>
        </div>
-
     </div>
   </div>
 </div>
