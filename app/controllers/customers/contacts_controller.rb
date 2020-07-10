@@ -18,14 +18,13 @@ class Customers::ContactsController < ApplicationController
  end
 end
 
- def thanks #メール送信
+ def thanks #送信完了ページ
  @contact = Contact.new(contact_params)
  @contact.customer_id = current_customer.id
  if params[:back]
  	render :action => "contact"
  else
  	@contact.save!
- 	#ContactMailer.received_email(@contact).deliver_now
  	render :action => "thanks"
  end
 end
