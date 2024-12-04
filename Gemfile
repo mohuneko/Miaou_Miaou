@@ -71,7 +71,7 @@ gem 'devise' #デバイス
 
 gem 'bootstrap', '~> 4.1.1' #bootstrap
 gem 'jquery-rails' #railsでjqueryを使えるようにするため
-gem 'kaminari', '~> 1.1.1' #ページを区切る
+gem 'kaminari', '~> 1.2.1' #ページを区切る
 gem 'enum_help' #enumの日本語化
 gem 'dotenv-rails' #機密情報の格納
 gem 'activeadmin' #管理者機能
